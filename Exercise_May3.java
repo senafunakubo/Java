@@ -5,8 +5,6 @@
  */
 package exercise_may3;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -23,12 +21,20 @@ public class Exercise_May3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        int n;
+        checkNum();
+        checkString();
+                
+    } //The end of main fun
+    
+    
+  public static void checkNum()
+   {
+       int n;
         Scanner s = new Scanner(System.in);
         System.out.print("Enter the number you want to check:");
         boolean valid = false;
-        while(! valid ) {
+        while(! valid )
+        {
          try
          {
            n = s.nextInt();
@@ -48,9 +54,14 @@ public class Exercise_May3 {
             System.out.println("Not a valid number.");
             break;
           }
-        }
-         
-        String string;
+        }//The end of while loop
+        
+    }//The end of checkNum
+  
+  
+     public static void checkString()
+     {
+           String string;
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter a string you want to check:");
         string = scan.nextLine();
@@ -73,9 +84,10 @@ public class Exercise_May3 {
         {
            System.out.println("Input letter is a Consonant.");
         }
-    }    
-    
-}
+    }   
+        
+   } //The end of ALL
+
 
 //Q1.a if(q>0) System.out.println("XXX");
     //Q2.c AAABBB
