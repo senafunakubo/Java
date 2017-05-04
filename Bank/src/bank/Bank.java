@@ -12,40 +12,48 @@ import java.util.Scanner;
  *
  * @author senafunakubo
  */
-public class Bank {
+public class Bank extends Balance{
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("Hello. You can choose checking or saving account to withdraw your money.\n\r");
-        System.out.println("Checking is Type 1 or Saving is type 2. \n\r");
+//      System.out.println("Hello. You can choose checking or saving account to withdraw your money.\n\r");
+        System.out.println("Hello. You can withdraw your money from checking or saving account or both.\n\r");
         
-        int choose;
-        Scanner chooseAccount = new Scanner(System.in);
-        choose = chooseAccount.nextInt();
-        if(choose == 1)
-        {
-          WithdrawMoneyFromChecking();
-        }
-        else if(choose == 2)
-        {
-          WithdrawMoneyFromSaving();
-        }
-        else
-        {
-            System.out.println("It's invalid.");
-        }
+//        System.out.println("If you prefer Checking, Type 1. prefering Saving is type 2. \n\r");
+//        
+//        int choose;
+//        Scanner chooseAccount = new Scanner(System.in);
+//        choose = chooseAccount.nextInt();
+//        switch (choose) {
+//            case 1:
+//                WithdrawMoneyFromChecking();
+////                break;
+//            case 2:
+//                WithdrawMoneyFromSaving();
+//                break;
+//            default:
+//                System.out.println("It's invalid.");
+//                break;
+//        }
+        
+        //function呼び出し＋戻り値をここでdoubleに入れ込んでいる
+        double checkingAmount = WithdrawMoneyFromChecking();
+        double savingAmount = WithdrawMoneyFromSaving();
+       if(checkingAmount<=10 && savingAmount<=100)
+       {
+           System.out.println("Both accounts are dangerously low!");
+       }
     }
   
      
-     public static void WithdrawMoneyFromChecking()
+     public static double WithdrawMoneyFromChecking()
     {
         int money;
         Balance CheckingAccount = new Balance(300);
         Scanner scanWithdrawAmount = new Scanner(System.in);
-         System.out.print("Hi Now you have $300 in your checking account.\n\r");
+         System.out.print("Now you have $300 in your checking account.\n\r");
          System.out.print("Enter the amount you wanna withdraw from Checking account:");
          boolean valid = false;
          while(! valid )
@@ -78,16 +86,17 @@ public class Bank {
           }
           
          }//The end of while loop 
-         
+       return CheckingAccount.checkingBalance;
+       
     }//The end of WithdrawMoneyFromChecking function
      
      
-    public static void WithdrawMoneyFromSaving()
+    public static double WithdrawMoneyFromSaving()
     {
        int money;
         Balance savingAccount = new Balance(500);
         Scanner scanWithdrawAmount = new Scanner(System.in);
-         System.out.print("Hi Now you have $500 in your Saving account.\n\r");
+         System.out.print("Now you have $500 in your Saving account.\n\r");
          System.out.print("Enter the amount you wanna withdraw from Saving account:");
          boolean valid = false;
          while(! valid )
@@ -105,7 +114,7 @@ public class Bank {
               {
                  valid = true;
                  System.out.println("You withdrew $"+money+"." + " Account balance is $"+savingAccount.savingBalance + ".");
-                 System.out.println("Saving account balance is low.");
+                 System.out.println("Saving account balance is low.\n\r\n\r");
               }
               else //Try to withdraw less than $0
               {
@@ -120,7 +129,7 @@ public class Bank {
           }
           
          }//The end of while loop 
-         
+       return savingAccount.checkingBalance;
     }//The end of WithdrawMoneyFromSaving
         
 } //The end of ALL
