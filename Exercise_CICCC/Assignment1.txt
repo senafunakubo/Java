@@ -1,0 +1,22 @@
+﻿Q1.d  Compilation error
+//      Y is out of the scope.
+
+
+Q2.a  5.0
+//      9.0+16.0 = 25.0 -> √25 -> 5.0
+
+
+Q3.b  2
+//      var2 = 1 -> false -> +1 -> output:2
+
+
+Q4.a  Public method is accessible to all other classes in the hierarchy.
+//      Allows any other class to access the method.
+
+
+Q5.b  200
+//      10*2*10
+
+
+Q6.d  IlikeJava
+//      just print out after adding them
