@@ -7,6 +7,7 @@ class MonsterTruck extends Car
 {
     public static void m1()
     {
+        System.out.println("");
         System.out.println("monster 1");
     }
 
