@@ -15,7 +15,7 @@ class MonsterTruck extends Car
     {
         Truck.m1();
         String s ="/";
-        System.out.println(s);
+        System.out.print(s);
         super.m1();
     }
 
