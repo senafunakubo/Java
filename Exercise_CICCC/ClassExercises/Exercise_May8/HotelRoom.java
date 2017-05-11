@@ -3,33 +3,40 @@ package Exercise_May8;
 /**
  * Created by senafunakubo on 2017-05-11.
  */
+
 public class HotelRoom {
 
     public int roomNumber;
     public double nightlyRentalRate;
 
-    public HotelRoom(int roomsNum,double nightlyRR)
+    //constructor
+    public HotelRoom(int roomsNum)
     {
         this.roomNumber = roomsNum;
-        this.nightlyRentalRate = nightlyRR;
+
+        if (roomsNum <= 299)
+        {
+            this.nightlyRentalRate = 69.95;
+        }
+        else
+        {
+            this.nightlyRentalRate = 89.95;
+        }
     }
 
-    public void setRoomNumber(int roomsNum)
-    {
-        roomNumber = roomsNum;
-    }
 
     public void setNightlyRentalRate(double nightlyRR)
     {
         nightlyRentalRate = nightlyRR;
     }
 
-    public int getRoomNumber(int roomsNum)
+    //getter
+    public int getRoomNumber()
     {
         return this.roomNumber;
     }
 
-    public double getNightlyRentalRate(double nightlyRR)
+    public double getNightlyRentalRate()
     {
         return this.nightlyRentalRate;
     }
