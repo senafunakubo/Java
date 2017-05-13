@@ -1,0 +1,17 @@
+﻿Java④ May8
+×Q1.d. many of the methods you need have already been used and tested
+Q2.c. extends
+Q3.c. modelHigh.getFloors();
+Q4.a. A child class inherits from a parent class.
+Q5.We can only Extend a single class.
+Q6.vroomvroom
+      truck 1
+      car 1
+
+
+<Red part>
+Q7.a overrides
+Q8.d parent class
+×Q9.b. information hiding
+×Q10.b. protected
+×Q11.c. static
