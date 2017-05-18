@@ -4,19 +4,20 @@
  * and open the template in the editor.
  */
 package secure;
+
 import java.sql.*;
 import javax.swing.*;
-
 
 /**
  *
  * @author senafunakubo
  */
 public class Login extends javax.swing.JFrame {
- Connection connection = null;
- PreparedStatement pst = null;
- ResultSet resultSet = null;
- 
+
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet resultSet = null;
+
     /**
      * Creates new form Login
      */
@@ -129,24 +130,21 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         connection = MySqlConnect.ConnectDB();
         String Sql = "Select * from login where username=? and password=?";
-        try{
-           pst = connection.prepareStatement(Sql);
-           pst.setString(1,usernameTextField.getText());
-           pst.setString(2,passwordTextField.getText());
-           resultSet = pst.executeQuery();
-           if(resultSet.next())
-           {
-              JOptionPane.showMessageDialog(null, "Welcome!");
-              Welcome wel = new Welcome();
-              wel.setVisible(true);
-           }
-           else
-           {
-              JOptionPane.showMessageDialog(null,"Invalid username or password","Access Denied",JOptionPane.ERROR_MESSAGE);
-           }
-        }catch(Exception e){
-              JOptionPane.showMessageDialog(null,e);
-              
+        try {
+            pst = connection.prepareStatement(Sql);
+            pst.setString(1, usernameTextField.getText());
+            pst.setString(2, passwordTextField.getText());
+            resultSet = pst.executeQuery();
+            if (resultSet.next()) {
+                JOptionPane.showMessageDialog(null, "Welcome!");
+                Welcome wel = new Welcome();
+                wel.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid username or password", "Access Denied", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 

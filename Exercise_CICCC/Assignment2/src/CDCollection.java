@@ -16,18 +16,19 @@ public class CDCollection {
     }
 
     //Add a cd to collection
-    public void addCD(String title, int tracks, double price, String genre, int year){
-        collection[count] = new CDMain(title,tracks,price,genre,year);
+    public void addCD(String cdTitle, int tracks, double price, String genre, int year){
+        collection[count] = new CDMain(cdTitle,tracks,price,genre,year);
         totalCost = totalCost + price;
         count++;
     }
 
     public String toString(){
-        String report = "** MY COLLECTION **\n "+ "\nNumber Of CDs \t"+ count + "\nTOTAL Cost\t"+ "$" +totalCost;
+        String report = "** MY CD COLLECTION **\n "+ "\nNumber Of CDs \t"+ count + "\nTOTAL Cost\t\t"+ "$" +totalCost;
         report += "\nAVERAGE Cost\t" + "$" + (totalCost/count)+"\n\n";
 
-        for(int i=0; i<count;i++)
-            report += collection[i].Display()+"\n";
+        for(int i=0; i<count;i++) {
+            report += collection[i].Display() + "\n";
+        }
         return report;
     }
 
