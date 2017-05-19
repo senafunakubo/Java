@@ -12,22 +12,28 @@ public class CDCollection {
         collection= new CDMain[10];
         count = 0;
         totalCost =0.0;
-        //If I have time,I need to change double to BigDecimal
+        //If I have time, I need to change double to BigDecimal
     }
 
     //Add a cd to collection
-    public void addCD(String cdTitle, int tracks, double price, String genre, int year){
-        collection[count] = new CDMain(cdTitle,tracks,price,genre,year);
+    public void addCD(String cdTitle, String artistName, int tracks, double price, String genre, int year){
+        collection[count] = new CDMain(cdTitle,artistName,tracks,price,genre,year);
         totalCost = totalCost + price;
         count++;
     }
 
-    public String toString(){
-        String report = "** MY CD COLLECTION **\n "+ "\nNumber Of CDs \t"+ count + "\nTOTAL Cost\t\t"+ "$" +totalCost;
-        report += "\nAVERAGE Cost\t" + "$" + (totalCost/count)+"\n\n";
+//    public String Mycollection()
+//    {
+//        System.out.println("");
+//        String coll = "\nNumber Of CDs \t"+ count + "\nTOTAL Cost\t\t"+ "$" +totalCost + "\nAVERAGE Cost\t" + "$" + (totalCost/count)+"\n\n";
+//        return coll;
+//    }
 
+    public String toString()
+    {
+        String report = "";
         for(int i=0; i<count;i++) {
-            report += collection[i].Display() + "\n";
+            report += (i+1)+ ". " + collection[i].Display() + "\n";
         }
         return report;
     }

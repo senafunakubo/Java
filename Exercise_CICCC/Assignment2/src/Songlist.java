@@ -22,7 +22,7 @@ public class Songlist {
 
     public String songDetails(){
         System.out.println("");
-        String songDetail = "** Whole songs list **" + "\n";
+        String songDetail = "** Songs list **" + "\n\n";
 
         for(int i=0; i<count;i++) {
             songDetail += i+1 + "." + songs[i].songDisplay() + "\n";
