@@ -5,11 +5,13 @@
 public class Song {
     private String songTitle;
     private String artist;
+    private double songTime;
 
 
-    public Song(String songTitle, String artist){
+    public Song(String songTitle, String artist, double songTime){
      this.songTitle = songTitle;
      this.artist = artist;
+     this.songTime = songTime;
 
     }
 
@@ -21,10 +23,14 @@ public class Song {
         return this.artist;
     }
 
+    public double getSongTime(){
+        return this.songTime;
+    }
+
     public String songDisplay()
     {
         String songDetail;
-        songDetail = this.songTitle +"\t\t"+ this.artist;
+        songDetail = this.songTitle +"\t\t"+ this.artist + "\t" + this.songTime;
         return songDetail;
     }
 }

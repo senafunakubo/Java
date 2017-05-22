@@ -13,9 +13,9 @@ public class Songlist {
     }
 
 
-    public void addsongs(String songTitle, String artist)
+    public void addsongs(String songTitle, String artist, double songTime)
     {
-       songs[count] = new Song(songTitle,artist);
+       songs[count] = new Song(songTitle,artist,songTime);
        count++;
     }
 
