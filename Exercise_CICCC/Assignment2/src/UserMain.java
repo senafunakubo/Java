@@ -13,6 +13,10 @@ public class UserMain {
         return this.cdList;
     }
 
+    public UserMain(ArrayList<CD> cdList){
+        this.cdList = cdList;
+    }
+
     public static void main(String[] args) {
 
         System.out.println("");
@@ -90,12 +94,22 @@ public class UserMain {
         CD album = new CD(songlist2,"Starboy", "The Weeknd", 18, 12.88, "R&B", 2016);
         CD album2 = new CD(songList1,"Ae Dil Hai Mushkil", "Various", 6, 9.75, "SoundTrack", 2016);
 
+        ArrayList<CD> cdList1 = new ArrayList<CD>();
+        cdList1.add(album);
+        cdList1.add(album2);
+//        ArrayList<CD> cdList2 = new ArrayList<CD>();
+//        cdList2.add(album2);
+
+        UserMain user = new UserMain(cdList1);
+
 
         while(choose<9) {
             switch (choose) {
                 case 1:
                     System.out.println("");
                     System.out.println("** My CD Collection **");
+                    System.out.println("");
+                    player.displayAlbums(user);
                     chooseSeeTracks(album,album2,player);
                     break;
                 case 2:
@@ -127,7 +141,6 @@ public class UserMain {
         }
 
     }//main
-
 
     public static void chooseSeeTracks(CD album,CD album2, CDPlayer player){
         System.out.println("");
