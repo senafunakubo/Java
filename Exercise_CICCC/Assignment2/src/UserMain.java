@@ -9,12 +9,12 @@ public class UserMain {
 
     ArrayList<CD> cdList;
 
-    public ArrayList<CD> getCDList() {
-        return this.cdList;
-    }
-
     public UserMain(ArrayList<CD> cdList){
         this.cdList = cdList;
+    }
+
+    public ArrayList<CD> getCDList() {
+        return this.cdList;
     }
 
     public static void main(String[] args) {
@@ -97,8 +97,6 @@ public class UserMain {
         ArrayList<CD> cdList1 = new ArrayList<CD>();
         cdList1.add(album);
         cdList1.add(album2);
-//        ArrayList<CD> cdList2 = new ArrayList<CD>();
-//        cdList2.add(album2);
 
         UserMain user = new UserMain(cdList1);
 
@@ -116,9 +114,16 @@ public class UserMain {
                     System.out.println("");
                     System.out.println("** Adding CD **");
                     System.out.println("");
+                    CD newCD = player.addCd();
+                    cdList1.add(newCD);
+                    System.out.println("*****You added this CD successfully !*****");
+                    System.out.println("\n\n");
+//                    player.displayAlbums(user);
 
                     break;
                 case 3:
+                    System.out.println("");
+                    player.deleteCD(user);
                     break;
                 case 9:
                     break;

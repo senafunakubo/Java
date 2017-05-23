@@ -82,11 +82,16 @@ public class CD {
 //    }
 
 
-//    public void Display()
-//    {
-//        String desc;
-//        System.out.println(this.cdTitle +"\t"+ this.artistName + "\n" + this.genre + "\t$" + this.price + "\t" + this.tracks + "songs\t" + this.year +"\n");
-//        return desc;
-//    }
+    public void Display()
+    {
+        System.out.println(this.cdTitle +"\t"+ this.artistName + "\n" + this.genre + "\t$" + this.price + "\t" + this.tracks + "songs\t" + this.year +"\n");
+    }
+
+    public String displayForFile()
+    {
+        String album = "";
+        album = this.cdTitle +"\t"+ this.artistName + "\n" + this.genre + "\t$" + this.price + "\t" + this.tracks + "songs\t" + this.year +"\n";
+        return album;
+    }
 
 }
