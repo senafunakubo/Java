@@ -1,3 +1,5 @@
+package May8_Inheritance;
+
 // CSE 142, Lab 9
 // A class to represent secretaries.
 
