@@ -8,11 +8,35 @@ import java.util.Scanner;
 public class May2_String {
 
     public static void main(String[] args) {
+
+        System.out.println("Q1");
         vowel();
+
+        System.out.println("Q2");
         palindrom();
+
+        System.out.println("Q3");
         count();
+
+        System.out.println("Q4");
         quote();
 
+        System.out.println("Q5");
+        String s="Welcome to Java Programming";
+        System.out.println(s);
+        char arr[]=s.toLowerCase().toCharArray();
+        System.out.println("Remove the duplicate characters in a string:");
+        removeDuplicates(arr);
+        System.out.println("\n");
+
+        System.out.println("Q6");
+        String s1 = "sumitjain";
+        String s2 = "tjainsumi";
+        System.out.println("Is '" + s1 + "' and '" + s2 + "' are rotated? : " + isRotated(s1, s2));
+        System.out.println("\n\n");
+
+        //In class exercise
+        System.out.println("ClassEx:");
         sub();
     }
 
@@ -99,6 +123,7 @@ public class May2_String {
     //Q3
     public static void count(){
         String vowelCheck = "Home is the place, when you have to go there, they have to take you in.  Robert Frost";
+        System.out.println(vowelCheck);
 
         int vowelCount = 0;
         int consonantsCount = 0;
@@ -128,14 +153,52 @@ public class May2_String {
 
     //Q4
     public static void quote(){
-        String mark= "It is better to deserve honours and not have them than to have them and not deserve them. – Mark Twain.";
-        System.out.println(mark.indexOf('h'));
-        System.out.println(mark.charAt(14));
-        System.out.println(mark.endsWith("Twain"));
-        System.out.println(mark.replace('a', 'A'));
+        String mark= "It is better to deserve honours and not have them than to have them and not deserve them. – Mark Twain";
+        System.out.println(mark);
+        System.out.println("indexOf('h'): " + mark.indexOf('h'));
+        System.out.println("charAt(14): " + mark.charAt(14));
+        System.out.println("endsWith(\"Twain\"): " + mark.endsWith("Twain"));
+        System.out.println("replace a to A: " + mark.replace('a', 'A'));
         System.out.println("");
     }
 
+    //Q5
+    public static final void removeDuplicates(char[] str)
+    {
+    /*
+     * If the str is not instantiated, or there is maximum 1 char there is no need to remove duplicates as
+     * it is just impossible to have duplicate with 1 char.
+    */
+        if (str == null || str.length < 2)
+            return;
 
+        //loop over each char
+        for(int i = 0; i < str.length; i++)
+        {
+            //no need to check with earlier character as they were already checked, so we start at i + 1
+              //2つめのforが回り終わるまで、1つめのforのiは0のまま
+            for(int j = i + 1; j < str.length; j++)
+            {
+                //if they match we clear
+                if(str[j] == str[i])
+                    str[j] = ' ';
+            }
+        }
+
+        System.out.println(str);
+    }
+
+    //Q6
+    public static boolean isRotated(String s1, String s2){
+        if(s1.length()!=s2.length()){
+            return false;
+        }
+        String sAdd = s1 + s1;
+        if(sAdd.contains(s2)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }//End of all
