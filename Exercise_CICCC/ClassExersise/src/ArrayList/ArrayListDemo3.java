@@ -1,8 +1,11 @@
+package ArrayList;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
 
 //http://qiita.com/yoshi389111/items/c24f8beefb7b96cad921
+//https://www.javadrive.jp/start/linkedlist/
 
 /**
  * Created by senafunakubo on 2017-05-23.
