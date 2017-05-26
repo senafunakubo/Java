@@ -1,6 +1,6 @@
 ﻿May 3-4 Java Decisions, Loops and arrays
 
-
+PART 3
 Q1.a if(q>0) System.out.println("XXX");
 Q2.c AAABBB
 Q3.d nothing
@@ -9,6 +9,8 @@ Q5.c ||
 Q6.d break
 Q7.b assigns 2 to x
 
+PART 4
+PART 5
 
 
 

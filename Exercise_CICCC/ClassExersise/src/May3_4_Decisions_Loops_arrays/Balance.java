@@ -22,25 +22,10 @@ public class Balance {
     }
 
 
-    public void deposit(double amount)
-    {
-        checkingBalance = checkingBalance + amount;
-        savingBalance = savingBalance + amount;
-    }
-
     public void withdraw(double amount)
     {
         checkingBalance = checkingBalance - amount;
         savingBalance = savingBalance - amount;
     }
 
-    public double getCheckingBalance()
-    {
-        return checkingBalance;
-    }
-
-    public double getSavingBalance()
-    {
-        return savingBalance;
-    }
 }

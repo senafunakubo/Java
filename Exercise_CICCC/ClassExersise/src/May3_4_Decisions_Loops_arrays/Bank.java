@@ -7,6 +7,8 @@ import java.util.Scanner;
  *
  * @author senafunakubo
  */
+
+//Q4
 public class Bank extends Balance{
 
 
@@ -66,9 +68,6 @@ public class Bank extends Balance{
     }
 
     public static void bothAccount(double checkingAmount, double savingAmount) {
-        //function呼び出し＋戻り値をここでdoubleに入れ込んでいる
-//        checkingAmount = WithdrawMoneyFromChecking();
-//        savingAmount = WithdrawMoneyFromSaving();
         if (checkingAmount <= 10 && savingAmount <= 100) {
             System.out.println("Both accounts are dangerously low!");
         }
