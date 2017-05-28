@@ -1,8 +1,10 @@
 package May3_4_Decisions_Loops_arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by senafunakubo on 2017-05-26.
@@ -14,6 +16,7 @@ public class SortDoubles {
     public static void main(String[] args){
         int i =0;
         double[] array = new double[15];
+        ArrayList arrayList = new ArrayList();
 
         System.out.println("Please Enter 15 numbers.");
         Scanner input = new Scanner(System.in);
@@ -24,6 +27,7 @@ public class SortDoubles {
 
             try {
                 array[i] = userInput;
+                arrayList.add(userInput);
                 i++;
             } catch (Exception e) {
                 System.out.println("Error: " + userInput + " is not a valid number");
@@ -32,6 +36,9 @@ public class SortDoubles {
         }while (i < 15);
 
         Scanner scan = new Scanner(System.in);
+        System.out.println("");
+        System.out.println("[1] Ascending:");
+        System.out.println("[2] Descending:");
         int choose = scan.nextInt();
 
         while (choose<3) {
@@ -43,13 +50,14 @@ public class SortDoubles {
                     for (Double n : array) {
                         System.out.print(n + "  ");
                     }
+                    System.out.println("");
                     break;
                 case 2:
-
+                    Comparator comparator = Collections.reverseOrder();
+                    Collections.sort(arrayList,comparator);
                     System.out.println("\n\nDescending: ");
-                    for (Double n : array){
-                        System.out.println(n + "  ");
-                    }
+                    System.out.println(arrayList + "  ");
+                    System.out.println("");
                     break;
                 default:
                     System.out.println("It's invalid.");
