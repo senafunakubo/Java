@@ -30,7 +30,7 @@ public abstract class Book
 
     public String toString()
     {
-        return "The Title of book:" + title + "   The price:$" + price;
+        return "The Title of book: " + title + "\t\t\tThe price:$" + price;
     }
 
 }
