@@ -2,4 +2,4 @@ fileTest.txt
 /Users/senafunakubo/Desktop/Java/Exercise_CICCC/ClassExersise/fileTest.txt
 0
 ClassExersise
-05/28/2017 18:12:40
+05/28/2017 20:48:21
