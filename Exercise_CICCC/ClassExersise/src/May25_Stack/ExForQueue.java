@@ -1,5 +1,6 @@
 package May25_Stack;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -27,6 +28,16 @@ public class ExForQueue {
     public boolean isEmpty() {
         // Test if the queue is empty.
         return queue.isEmpty();
+    }
+
+    //Iteratorを使って呼ぶ必要がある！
+    public void itr(){
+        Iterator<String> itr = queue.iterator();
+        while (itr.hasNext()) {
+            String str = itr.next();
+            System.out.print(str + "  ");
+        }
+        System.out.println("");
     }
 
 }

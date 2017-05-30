@@ -34,6 +34,11 @@ public class WritePhoneList {
             arrayList.add(user);
 
         }
+        System.out.println(arrayList);
+        for (Object o:arrayList
+             ) {
+            System.out.println(o.toString());
+        }
 
         BufferedWriter bw = null;
         try {

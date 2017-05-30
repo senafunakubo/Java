@@ -6,3 +6,4 @@ package May9_Interface_abstract;
 public interface Player {
     public abstract void play();
 }
+//only name and method declarelation
