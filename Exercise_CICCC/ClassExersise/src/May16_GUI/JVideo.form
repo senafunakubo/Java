@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="May16_GUI.JVideo">
+  <grid id="27dc6" binding="wholeField" layout-manager="GridLayoutManager" row-count="7" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="531" height="326"/>
+    </constraints>
+    <properties>
+      <background color="-1252638"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="c7b8" class="javax.swing.JCheckBox" binding="IdiotsCheckBox">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="3 idiots"/>
+        </properties>
+      </component>
+      <component id="b6bf4" class="javax.swing.JCheckBox" binding="aeDilHaiMushkilCheckBox" default-binding="true">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ae dil hai mushkil"/>
+        </properties>
+      </component>
+      <component id="d51d4" class="javax.swing.JCheckBox" binding="barfiCheckBox" default-binding="true">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Barfi!"/>
+        </properties>
+      </component>
+      <component id="77a7a" class="javax.swing.JCheckBox" binding="jabTakHaiJaanCheckBox" default-binding="true">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Jab Tak Hai Jaan"/>
+        </properties>
+      </component>
+      <component id="41094" class="javax.swing.JCheckBox" binding="rockstarCheckBox" default-binding="true">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Rockstar"/>
+        </properties>
+      </component>
+      <component id="961ee" class="javax.swing.JCheckBox" binding="sultanCheckBox" default-binding="true">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Sultan"/>
+        </properties>
+      </component>
+      <component id="3fef" class="javax.swing.JCheckBox" binding="talaashCheckBox" default-binding="true">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Talaash"/>
+        </properties>
+      </component>
+      <component id="4b555" class="javax.swing.JCheckBox" binding="FANCheckBox" default-binding="true">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="FAN"/>
+        </properties>
+      </component>
+      <component id="a03c" class="javax.swing.JCheckBox" binding="kahaaniCheckBox" default-binding="true">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Kahaani"/>
+        </properties>
+      </component>
+      <component id="39c66" class="javax.swing.JCheckBox" binding="theLunchboxCheckBox" default-binding="true">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="The lunchbox"/>
+        </properties>
+      </component>
+      <component id="492fe" class="javax.swing.JRadioButton" binding="SDRadioButton">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="SD / $1"/>
+        </properties>
+      </component>
+      <component id="2517f" class="javax.swing.JRadioButton" binding="HDRadioButton">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="HD / $2"/>
+        </properties>
+      </component>
+      <component id="2b8a3" class="javax.swing.JRadioButton" binding="KRadioButton">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="4K / $3"/>
+        </properties>
+      </component>
+      <component id="80808" class="javax.swing.JButton" binding="PriceButton">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Rental"/>
+        </properties>
+      </component>
+      <component id="4f8c0" class="javax.swing.JLabel" binding="videoStoreLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="LingWai SC" size="22"/>
+          <text value="Video Store"/>
+        </properties>
+      </component>
+      <component id="fd1d6" class="javax.swing.JLabel" binding="PriceLabel">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Price: $0"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="buttonGroup1">
+      <member id="2b8a3"/>
+      <member id="2517f"/>
+      <member id="492fe"/>
+    </group>
+  </buttonGroups>
+</form>
