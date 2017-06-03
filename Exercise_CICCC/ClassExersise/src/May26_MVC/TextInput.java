@@ -9,7 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-//import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
@@ -21,12 +20,13 @@ public class TextInput extends JFrame {
     private JButton loadButton = new JButton("Load Data");
     private JTextArea textArea = new JTextArea();
     private JButton writeButton = new JButton("Write Data");
+    private JPanel wholePanel;
 
 
     public TextInput() {
-        JPanel wholePanel = new JPanel();
+        wholePanel = new JPanel();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(300, 300);
+        this.setSize(400, 400);
         textArea.setPreferredSize(new Dimension(180, 27));
         wholePanel.add(loadLabel);
         wholePanel.add(loadButton);
@@ -37,9 +37,19 @@ public class TextInput extends JFrame {
     }
 
 
+    public void setTextStringLoad(String text){
+        loadLabel.setText(text);
+    }
+
+    public String getTextString(){
+        return textArea.getText();
+    }
 
     public void addLoadListener(ActionListener listenForLoadButton){
         loadButton.addActionListener(listenForLoadButton);
+    }
 
+    public void addWriteListener(ActionListener listenForWriteButton){
+        writeButton.addActionListener(listenForWriteButton);
     }
 }
