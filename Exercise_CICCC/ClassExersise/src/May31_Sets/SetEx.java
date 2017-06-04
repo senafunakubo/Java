@@ -94,6 +94,8 @@ public class SetEx {
         System.out.println(setLinked);
         System.out.println(setTree);
         System.out.println("isSubset: " + isSubset(set, setLinked));
+        System.out.println("isEmpty: " + set.isEmpty());
+        System.out.println("size: " + setLinked.size());
         System.out.println("\n\n");
 
 
@@ -105,6 +107,8 @@ public class SetEx {
         System.out.println(set);
         System.out.println(setLinked);
         System.out.println(setTree);
+        System.out.println("isEmpty: " + setLinked.isEmpty());
+        System.out.println("size: " + setTree.size());
         System.out.println("\n\n");
 
 
@@ -116,8 +120,27 @@ public class SetEx {
         System.out.println(set);
         System.out.println(setLinked);
         System.out.println(setTree);
+        System.out.println("isEmpty: " + setTree.isEmpty());
+        System.out.println("size: " + set.size());
+        System.out.println("\n\n");
 
+        Iterator iterator = set.iterator();
 
+        while (iterator.hasNext()){
+            System.out.println("Value: "+iterator.next() + " ");
+        }
+        System.out.println("\n");
+
+        Iterator iterator1 = setLinked.iterator();
+        while (iterator1.hasNext()) {
+            System.out.println("Value: " + iterator1.next() + " ");
+        }
+        System.out.println("\n");
+
+        Iterator iterator2 = setTree.iterator();
+        while (iterator2.hasNext()){
+            System.out.println("Value: "+iterator2.next() + " ");
+        }
 
     }
 }
