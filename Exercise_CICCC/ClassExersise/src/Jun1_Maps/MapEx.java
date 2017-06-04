@@ -1,6 +1,7 @@
 package Jun1_Maps;
 
 import java.util.*;
+import java.util.HashMap;
 
 /**
  * Created by senafunakubo on 2017-06-01.
@@ -8,7 +9,7 @@ import java.util.*;
 
 public class MapEx {
     public static void main(String[] args) {
-        Map<Integer, String> m1 = new HashMap<>();
+        Map<Integer, String> m1 = new HashMap<Integer, String>();
         m1.put(101, "aaa");
         m1.put(105, "zzz");
         m1.put(103, "ccc");
@@ -16,7 +17,7 @@ public class MapEx {
         System.out.println("Data is " + m1);
         //今はkey順になるけど、linkedにすると順番通りになる
 
-        Map<Integer, String> m2 = new TreeMap<>();
+        Map<Integer, String> m2 = new TreeMap<Integer, String>();
         m2.put(110,"ppp");
         m2.put(101,"aaa");
         m2.put(105,"zzz");
