@@ -4,6 +4,7 @@ package Jun5_Searching_Sorting;
  * Created by senafunakubo on 2017-06-05.
  */
 
+// **** Recursive ****
 
 public class TestOfBinarySearch {
 

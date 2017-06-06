@@ -8,6 +8,7 @@ import java.util.List;
  * Created by senafunakubo on 2017-06-05.
  */
 
+
 public class SimpleBinarySearch {
 
         public static void main(String[] args) {
