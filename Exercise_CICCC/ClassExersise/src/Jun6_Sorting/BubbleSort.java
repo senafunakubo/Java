@@ -25,7 +25,6 @@ public class BubbleSort {
                 }
 
             }
-            //Show the output
         }
 
         public static void SelectionSort(int[] num) {
@@ -43,6 +42,9 @@ public class BubbleSort {
             }
 
         }
+
+// The insertion sort, unlike the other sorts, passes through the array only once.
+// http://qiita.com/masalennon/items/34dbc194cdf9ba7dea1d
 
         public static void InsertionSort(int[] num) {
             int j;                     // the number of items sorted so far
