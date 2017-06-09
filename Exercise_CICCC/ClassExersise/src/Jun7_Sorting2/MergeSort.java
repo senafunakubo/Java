@@ -13,7 +13,7 @@ public class MergeSort {
         public static void main(String[] args)
         {
             //Unsorted array
-            Integer[] a = { 2, 6, 3, 5, 9, 1, 12 };
+            Integer[] a = {170, 45, 75, 90, 802, 2, 24, 66, 23, 234, 3, 232, 44};
 
             //Call merge sort
             MergeSort(a);

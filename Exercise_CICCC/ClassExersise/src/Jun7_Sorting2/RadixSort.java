@@ -4,8 +4,6 @@ package Jun7_Sorting2;
  * Created by senafunakubo on 2017-06-08.
  */
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
