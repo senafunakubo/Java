@@ -31,6 +31,21 @@ public class UserInfo extends javax.swing.JFrame {
         UserInfoPageLabel = new javax.swing.JLabel();
         PaymentPageLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        FirstNameLabel = new javax.swing.JLabel();
+        FirstNameLabel1 = new javax.swing.JLabel();
+        FirstNameLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         BluePanel = new javax.swing.JPanel();
         TotalLabel = new javax.swing.JLabel();
         PriceLabel = new javax.swing.JLabel();
@@ -50,32 +65,48 @@ public class UserInfo extends javax.swing.JFrame {
         SushiPageLabel.setForeground(new java.awt.Color(204, 204, 204));
         SushiPageLabel.setText("Sushi");
         SushiPageLabel.setPreferredSize(new java.awt.Dimension(34, 24));
-        SushiPageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SushiPageLabelMouseClicked(evt);
-            }
-        });
 
         UserInfoPageLabel.setFont(new java.awt.Font("Tsukushi B Round Gothic", 0, 14)); // NOI18N
         UserInfoPageLabel.setForeground(new java.awt.Color(51, 51, 51));
         UserInfoPageLabel.setText("UserInfo");
-        UserInfoPageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                UserInfoPageLabelMouseClicked(evt);
-            }
-        });
 
         PaymentPageLabel.setFont(new java.awt.Font("Tsukushi B Round Gothic", 0, 14)); // NOI18N
         PaymentPageLabel.setForeground(new java.awt.Color(204, 204, 204));
         PaymentPageLabel.setText("Payment");
-        PaymentPageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PaymentPageLabelMouseClicked(evt);
-            }
-        });
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(51, 51, 51));
+
+        FirstNameLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        FirstNameLabel.setText("First name");
+
+        FirstNameLabel1.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        FirstNameLabel1.setText("Last name");
+
+        FirstNameLabel2.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        FirstNameLabel2.setText("Email");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        jLabel1.setText("Phone number");
+
+        jLabel2.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        jLabel2.setText("Address");
+
+        jLabel3.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        jLabel3.setText("City");
+
+        jLabel4.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        jLabel4.setText("Zip code");
+
+        jButton1.setBackground(new java.awt.Color(251, 251, 251));
+        jButton1.setForeground(new java.awt.Color(51, 51, 51));
+        jButton1.setText("Cancel");
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
@@ -84,17 +115,41 @@ public class UserInfo extends javax.swing.JFrame {
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addComponent(SushiPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(176, 176, 176)
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(UserInfoPageLabel)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SushiPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 450, Short.MAX_VALUE))
+                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(FirstNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                .addComponent(jTextField1))
+                            .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
+                        .addGap(60, 60, 60)
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addGap(213, 213, 213)
-                                .addComponent(PaymentPageLabel)))
-                        .addGap(94, 94, 94))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField2)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField7)
+                                    .addComponent(FirstNameLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(UserInfoPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(60, 60, 60)
+                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(MainPanelLayout.createSequentialGroup()
+                                        .addComponent(PaymentPageLabel)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(FirstNameLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField3)))
+                            .addComponent(jTextField5))))
+                .addGap(60, 60, 60))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,9 +159,37 @@ public class UserInfo extends javax.swing.JFrame {
                     .addComponent(UserInfoPageLabel)
                     .addComponent(SushiPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PaymentPageLabel))
-                .addGap(0, 0, 0)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FirstNameLabel)
+                    .addComponent(FirstNameLabel1)
+                    .addComponent(FirstNameLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(37, 37, 37))
         );
 
         BluePanel.setBackground(new java.awt.Color(0, 153, 153));
@@ -196,7 +279,7 @@ public class UserInfo extends javax.swing.JFrame {
                 .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PriceLabel)
                     .addComponent(TotalLabel))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -211,32 +294,15 @@ public class UserInfo extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(BluePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(MainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SushiPageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SushiPageLabelMouseClicked
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-        SushiPageLabel.setForeground(java.awt.Color.BLACK);
-        UserInfoPageLabel.setForeground(java.awt.Color.lightGray);
-        PaymentPageLabel.setForeground(java.awt.Color.lightGray);
-    }//GEN-LAST:event_SushiPageLabelMouseClicked
-
-    private void UserInfoPageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserInfoPageLabelMouseClicked
-        // TODO add your handling code here:
-        UserInfoPageLabel.setForeground(java.awt.Color.BLACK);
-        SushiPageLabel.setForeground(java.awt.Color.lightGray);
-        PaymentPageLabel.setForeground(java.awt.Color.lightGray);
-    }//GEN-LAST:event_UserInfoPageLabelMouseClicked
-
-    private void PaymentPageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PaymentPageLabelMouseClicked
-        // TODO add your handling code here:
-        PaymentPageLabel.setForeground(java.awt.Color.BLACK);
-        SushiPageLabel.setForeground(java.awt.Color.lightGray);
-        UserInfoPageLabel.setForeground(java.awt.Color.lightGray);
-    }//GEN-LAST:event_PaymentPageLabelMouseClicked
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,6 +347,9 @@ public class UserInfo extends javax.swing.JFrame {
     private javax.swing.JPanel BluePanel;
     private javax.swing.JLabel BlueSyoLabel;
     private javax.swing.JLabel BlueSyoPriceLabel;
+    private javax.swing.JLabel FirstNameLabel;
+    private javax.swing.JLabel FirstNameLabel1;
+    private javax.swing.JLabel FirstNameLabel2;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JLabel PaymentPageLabel;
     private javax.swing.JLabel PriceLabel;
@@ -288,7 +357,19 @@ public class UserInfo extends javax.swing.JFrame {
     private javax.swing.JLabel SushiPageLabel;
     private javax.swing.JLabel TotalLabel;
     private javax.swing.JLabel UserInfoPageLabel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 
 }
