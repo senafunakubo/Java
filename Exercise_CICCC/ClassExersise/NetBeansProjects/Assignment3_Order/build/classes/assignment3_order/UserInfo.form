@@ -56,14 +56,14 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="FirstNameLabel" pref="150" max="32767" attributes="0"/>
-                                          <Component id="jTextField1" max="32767" attributes="0"/>
+                                          <Component id="firstNameLabel" pref="150" max="32767" attributes="0"/>
+                                          <Component id="firstNameTF" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jLabel1" alignment="0" pref="150" max="32767" attributes="0"/>
+                                          <Component id="cityLabel" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cityTF" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="PhoneNumTF" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="phoneNumLabel" alignment="0" pref="150" max="32767" attributes="0"/>
                                           <Component id="cancelButton" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -71,17 +71,17 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jTextField7" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="FirstNameLabel1" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lastNameTF" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="AddressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="zipCodeLabel" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="zipCodeTF" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lastNameLabel" alignment="0" max="32767" attributes="0"/>
                                               <Component id="UserInfoPageLabel" alignment="1" pref="150" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="FirstNameLabel2" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="EmailLabel" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="EmailTF" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
@@ -94,7 +94,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="210" pref="210" max="-2" attributes="0"/>
-                                  <Component id="jTextField5" max="32767" attributes="0"/>
+                                  <Component id="AddressTF" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
@@ -127,35 +127,35 @@
                   <Component id="jSeparator1" min="-2" pref="12" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="FirstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="FirstNameLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="FirstNameLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="firstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="EmailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="firstNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lastNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="EmailTF" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="phoneNumLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="AddressLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="PhoneNumTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AddressTF" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="zipCodeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cityTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="zipCodeTF" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -215,7 +215,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="FirstNameLabel">
+        <Component class="javax.swing.JLabel" name="firstNameLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tsukushi A Round Gothic" size="10" style="0"/>
@@ -223,7 +223,7 @@
             <Property name="text" type="java.lang.String" value="First name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="FirstNameLabel1">
+        <Component class="javax.swing.JLabel" name="lastNameLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tsukushi A Round Gothic" size="10" style="0"/>
@@ -231,7 +231,7 @@
             <Property name="text" type="java.lang.String" value="Last name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="FirstNameLabel2">
+        <Component class="javax.swing.JLabel" name="EmailLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tsukushi A Round Gothic" size="10" style="0"/>
@@ -239,16 +239,16 @@
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="firstNameTF">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameTFActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="lastNameTF">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="EmailTF">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="phoneNumLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tsukushi A Round Gothic" size="10" style="0"/>
@@ -256,7 +256,7 @@
             <Property name="text" type="java.lang.String" value="Phone number"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="AddressLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tsukushi A Round Gothic" size="10" style="0"/>
@@ -264,11 +264,11 @@
             <Property name="text" type="java.lang.String" value="Address"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="PhoneNumTF">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField5">
+        <Component class="javax.swing.JTextField" name="AddressTF">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="cityLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tsukushi A Round Gothic" size="10" style="0"/>
@@ -276,9 +276,9 @@
             <Property name="text" type="java.lang.String" value="City"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField6">
+        <Component class="javax.swing.JTextField" name="cityTF">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="zipCodeLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tsukushi A Round Gothic" size="10" style="0"/>
@@ -286,7 +286,7 @@
             <Property name="text" type="java.lang.String" value="Zip code"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField7">
+        <Component class="javax.swing.JTextField" name="zipCodeTF">
         </Component>
         <Component class="javax.swing.JButton" name="cancelButton">
           <Properties>

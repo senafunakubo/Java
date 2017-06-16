@@ -13,11 +13,13 @@ import javax.swing.JOptionPane;
  */
 public class Order extends javax.swing.JFrame {
 
-    Price price = null;
+//    Price price = null;
+    Price sushiPrice = new Price(0,0,0);
     /**
      * Creates new form Order
      */
     public Order() {
+         
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -620,8 +622,6 @@ public class Order extends javax.swing.JFrame {
 
     private void AddCartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddCartButtonMouseClicked
         // TODO add your handling code here:
-        Price allSushiPrice = null;
-        UserInfo userInfo = null;
         
         //For calculate the sum of Syo
         String text = jTextField1.getText();
@@ -649,8 +649,10 @@ public class Order extends javax.swing.JFrame {
         String allSum = Integer.toString(allResult);
         PriceLabel.setText("$" + allSum);
         
-        allSushiPrice = new Price(sum,sum2,sum3);
-        userInfo.ShowShoppingCart(allSushiPrice);
+        sushiPrice.setSyo(sum);
+        sushiPrice.setChiku(sum2);
+        sushiPrice.setBai(sum3);
+        
     }//GEN-LAST:event_AddCartButtonMouseClicked
 
     private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
@@ -674,6 +676,7 @@ public class Order extends javax.swing.JFrame {
         int price = Integer.parseInt(cutSum);
         if(price>0){
           UserInfo infoPage= new UserInfo();
+          infoPage.ShowShoppingCart(sushiPrice);
           infoPage.setVisible(true);
         }else{
           JOptionPane.showMessageDialog(null, "Please add more than one item.");

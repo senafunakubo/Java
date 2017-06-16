@@ -22,19 +22,28 @@ public class Price {
       this.bai = bai;
     }
     
-    public String getSyo(){
-        String syoSt = Integer.toString(syo);
-        return syoSt;
+    public int getSyo(){
+        return syo;
     }
     
-    public String getChiku(){
-        String chikuSt = Integer.toString(chiku);
-        return chikuSt;
+    public int getChiku(){
+        return chiku;
     }
     
-    public String getBai(){
-        String baiSt = Integer.toString(bai);
-        return baiSt;
+    public int getBai(){
+        return bai;
+    }
+    
+    public void setSyo(int syo){
+        this.syo = syo;
+    }
+    
+    public void setChiku(int chiku){
+        this.chiku = chiku;
+    }
+    
+    public void setBai(int bai){
+        this.bai = bai;
     }
     
     Price getPrice(){

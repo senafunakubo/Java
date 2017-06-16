@@ -6,12 +6,20 @@
 
 package assignment3_order;
 
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author senafunakubo
  */
 public class UserInfo extends javax.swing.JFrame {
+    User user = new User("","","",0,"","","");
     
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet resultSet = null;
     
     /** Creates new form UserInfo */
     public UserInfo() {
@@ -33,20 +41,20 @@ public class UserInfo extends javax.swing.JFrame {
         UserInfoPageLabel = new javax.swing.JLabel();
         PaymentPageLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        FirstNameLabel = new javax.swing.JLabel();
-        FirstNameLabel1 = new javax.swing.JLabel();
-        FirstNameLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        firstNameLabel = new javax.swing.JLabel();
+        lastNameLabel = new javax.swing.JLabel();
+        EmailLabel = new javax.swing.JLabel();
+        firstNameTF = new javax.swing.JTextField();
+        lastNameTF = new javax.swing.JTextField();
+        EmailTF = new javax.swing.JTextField();
+        phoneNumLabel = new javax.swing.JLabel();
+        AddressLabel = new javax.swing.JLabel();
+        PhoneNumTF = new javax.swing.JTextField();
+        AddressTF = new javax.swing.JTextField();
+        cityLabel = new javax.swing.JLabel();
+        cityTF = new javax.swing.JTextField();
+        zipCodeLabel = new javax.swing.JLabel();
+        zipCodeTF = new javax.swing.JTextField();
         cancelButton = new javax.swing.JButton();
         RegisterButton = new javax.swing.JButton();
         alreadyMemberLabel = new javax.swing.JLabel();
@@ -81,32 +89,32 @@ public class UserInfo extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(51, 51, 51));
 
-        FirstNameLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
-        FirstNameLabel.setText("First name");
+        firstNameLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        firstNameLabel.setText("First name");
 
-        FirstNameLabel1.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
-        FirstNameLabel1.setText("Last name");
+        lastNameLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        lastNameLabel.setText("Last name");
 
-        FirstNameLabel2.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
-        FirstNameLabel2.setText("Email");
+        EmailLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        EmailLabel.setText("Email");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        firstNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                firstNameTFActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
-        jLabel1.setText("Phone number");
+        phoneNumLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        phoneNumLabel.setText("Phone number");
 
-        jLabel2.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
-        jLabel2.setText("Address");
+        AddressLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        AddressLabel.setText("Address");
 
-        jLabel3.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
-        jLabel3.setText("City");
+        cityLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        cityLabel.setText("City");
 
-        jLabel4.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
-        jLabel4.setText("Zip code");
+        zipCodeLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        zipCodeLabel.setText("Zip code");
 
         cancelButton.setBackground(new java.awt.Color(251, 251, 251));
         cancelButton.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
@@ -154,35 +162,32 @@ public class UserInfo extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50))
-                    .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MainPanelLayout.createSequentialGroup()
                                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(FirstNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                        .addComponent(jTextField1))
+                                        .addComponent(firstNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                        .addComponent(firstNameTF))
                                     .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                        .addComponent(cityLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cityTF, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(PhoneNumTF, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(phoneNumLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                         .addComponent(cancelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(MainPanelLayout.createSequentialGroup()
                                         .addGap(60, 60, 60)
                                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(FirstNameLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lastNameTF, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(AddressLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(zipCodeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(zipCodeTF, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lastNameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(UserInfoPageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
                                         .addGap(60, 60, 60)
                                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(FirstNameLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jTextField3)))
+                                            .addComponent(EmailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(EmailTF)))
                                     .addGroup(MainPanelLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,15 +195,16 @@ public class UserInfo extends javax.swing.JFrame {
                                         .addComponent(alreadyMemberLabel))))
                             .addGroup(MainPanelLayout.createSequentialGroup()
                                 .addGap(210, 210, 210)
-                                .addComponent(jTextField5)))
+                                .addComponent(AddressTF)))
                         .addGap(60, 60, 60))
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SushiPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(MainPanelLayout.createSequentialGroup()
                                 .addGap(420, 420, 420)
                                 .addComponent(PaymentPageLabel)))
-                        .addGap(154, 154, 154))))
+                        .addGap(50, 50, 50))))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,30 +218,30 @@ public class UserInfo extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FirstNameLabel)
-                    .addComponent(FirstNameLabel1)
-                    .addComponent(FirstNameLabel2))
+                    .addComponent(firstNameLabel)
+                    .addComponent(lastNameLabel)
+                    .addComponent(EmailLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(firstNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(phoneNumLabel)
+                    .addComponent(AddressLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PhoneNumTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(cityLabel)
+                    .addComponent(zipCodeLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cityTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zipCodeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -352,9 +358,9 @@ public class UserInfo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void firstNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_firstNameTFActionPerformed
 
     private void cancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelButtonMouseClicked
         // TODO add your handling code here:
@@ -364,7 +370,33 @@ public class UserInfo extends javax.swing.JFrame {
 
     private void RegisterButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterButtonMouseClicked
         // TODO add your handling code here:
-        Order order = new Order();
+        String firstName = firstNameTF.getText();
+        String lastName = lastNameTF.getText();
+        String email = EmailTF.getText();
+        
+        String phoneNum = PhoneNumTF.getText();
+        int phoneNumIn = Integer.parseInt(phoneNum);
+        
+        String address = AddressTF.getText();
+        String city = cityTF.getText();
+        String zipCode = zipCodeTF.getText();
+        
+        user.setfirstName(firstName);
+        user.setlastName(lastName);
+        user.setEmail(email);
+        user.setphoneNumber(phoneNumIn);
+        user.setaddress(address);
+        user.setcity(city);
+        user.setzipCode(zipCode);
+        
+        try
+        {
+            ForInsertUser forInsertUser = new ForInsertUser(user);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(UserInfo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_RegisterButtonMouseClicked
 
     private void alreadyMemberLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alreadyMemberLabelMouseClicked
@@ -382,9 +414,13 @@ public class UserInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_alreadyMemberLabelMouseExited
 
     public void ShowShoppingCart(Price price){
-        BlueSyoPriceLabel.setText(price.getSyo());
-        BlueChikuPriceLabel.setText(price.getChiku());
-        BlueBaiPriceLabel.setText(price.getBai());
+        
+        BlueSyoPriceLabel.setText("$" + Integer.toString(price.getSyo()));
+        BlueChikuPriceLabel.setText("$" + Integer.toString(price.getChiku()));
+        BlueBaiPriceLabel.setText("$" + Integer.toString(price.getBai()));
+        int allSum = price.getSyo() + price.getChiku() + price.getBai();
+        PriceLabel.setText("$" + Integer.toString(allSum));
+        
     }
     
     /**
@@ -392,6 +428,7 @@ public class UserInfo extends javax.swing.JFrame {
      */
     
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -415,6 +452,7 @@ public class UserInfo extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -424,6 +462,8 @@ public class UserInfo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AddressLabel;
+    private javax.swing.JTextField AddressTF;
     private javax.swing.JLabel BlueBaiLabel;
     private javax.swing.JLabel BlueBaiPriceLabel;
     private javax.swing.JLabel BlueChikuLabel;
@@ -431,11 +471,11 @@ public class UserInfo extends javax.swing.JFrame {
     private javax.swing.JPanel BluePanel;
     private javax.swing.JLabel BlueSyoLabel;
     private javax.swing.JLabel BlueSyoPriceLabel;
-    private javax.swing.JLabel FirstNameLabel;
-    private javax.swing.JLabel FirstNameLabel1;
-    private javax.swing.JLabel FirstNameLabel2;
+    private javax.swing.JLabel EmailLabel;
+    private javax.swing.JTextField EmailTF;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JLabel PaymentPageLabel;
+    private javax.swing.JTextField PhoneNumTF;
     private javax.swing.JLabel PriceLabel;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JLabel ShoppingCartLabel;
@@ -444,18 +484,16 @@ public class UserInfo extends javax.swing.JFrame {
     private javax.swing.JLabel UserInfoPageLabel;
     private javax.swing.JLabel alreadyMemberLabel;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel cityLabel;
+    private javax.swing.JTextField cityTF;
+    private javax.swing.JLabel firstNameLabel;
+    private javax.swing.JTextField firstNameTF;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JLabel lastNameLabel;
+    private javax.swing.JTextField lastNameTF;
+    private javax.swing.JLabel phoneNumLabel;
+    private javax.swing.JLabel zipCodeLabel;
+    private javax.swing.JTextField zipCodeTF;
     // End of variables declaration//GEN-END:variables
 
 }
