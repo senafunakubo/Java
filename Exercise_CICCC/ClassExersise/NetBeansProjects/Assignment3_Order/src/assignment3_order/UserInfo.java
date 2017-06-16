@@ -11,10 +11,12 @@ package assignment3_order;
  * @author senafunakubo
  */
 public class UserInfo extends javax.swing.JFrame {
-
+    
+    
     /** Creates new form UserInfo */
     public UserInfo() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /** This method is called from within the constructor to
@@ -45,7 +47,9 @@ public class UserInfo extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
+        RegisterButton = new javax.swing.JButton();
+        alreadyMemberLabel = new javax.swing.JLabel();
         BluePanel = new javax.swing.JPanel();
         TotalLabel = new javax.swing.JLabel();
         PriceLabel = new javax.swing.JLabel();
@@ -61,12 +65,12 @@ public class UserInfo extends javax.swing.JFrame {
 
         MainPanel.setBackground(new java.awt.Color(251, 251, 251));
 
-        SushiPageLabel.setFont(new java.awt.Font("Tsukushi B Round Gothic", 2, 14)); // NOI18N
+        SushiPageLabel.setFont(new java.awt.Font("Tsukushi B Round Gothic", 0, 14)); // NOI18N
         SushiPageLabel.setForeground(new java.awt.Color(204, 204, 204));
         SushiPageLabel.setText("Sushi");
         SushiPageLabel.setPreferredSize(new java.awt.Dimension(34, 24));
 
-        UserInfoPageLabel.setFont(new java.awt.Font("Tsukushi B Round Gothic", 0, 14)); // NOI18N
+        UserInfoPageLabel.setFont(new java.awt.Font("Tsukushi B Round Gothic", 2, 14)); // NOI18N
         UserInfoPageLabel.setForeground(new java.awt.Color(51, 51, 51));
         UserInfoPageLabel.setText("UserInfo");
 
@@ -104,9 +108,43 @@ public class UserInfo extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
         jLabel4.setText("Zip code");
 
-        jButton1.setBackground(new java.awt.Color(251, 251, 251));
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("Cancel");
+        cancelButton.setBackground(new java.awt.Color(251, 251, 251));
+        cancelButton.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        cancelButton.setForeground(new java.awt.Color(51, 51, 51));
+        cancelButton.setText("Cancel");
+        cancelButton.setMaximumSize(new java.awt.Dimension(81, 29));
+        cancelButton.setMinimumSize(new java.awt.Dimension(81, 29));
+        cancelButton.setPreferredSize(new java.awt.Dimension(81, 29));
+        cancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelButtonMouseClicked(evt);
+            }
+        });
+
+        RegisterButton.setBackground(new java.awt.Color(0, 153, 153));
+        RegisterButton.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        RegisterButton.setForeground(new java.awt.Color(251, 251, 251));
+        RegisterButton.setText("Register");
+        RegisterButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegisterButtonMouseClicked(evt);
+            }
+        });
+
+        alreadyMemberLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 12)); // NOI18N
+        alreadyMemberLabel.setText("Already a member ");
+        alreadyMemberLabel.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(51, 51, 51)));
+        alreadyMemberLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                alreadyMemberLabelMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                alreadyMemberLabelMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                alreadyMemberLabelMouseEntered(evt);
+            }
+        });
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
@@ -115,41 +153,52 @@ public class UserInfo extends javax.swing.JFrame {
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SushiPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 450, Short.MAX_VALUE))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(FirstNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                .addComponent(jTextField1))
-                            .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
-                        .addGap(60, 60, 60)
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField7)
-                                    .addComponent(FirstNameLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(UserInfoPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(60, 60, 60)
                                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(FirstNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                        .addComponent(jTextField1))
+                                    .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                        .addComponent(cancelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(MainPanelLayout.createSequentialGroup()
-                                        .addComponent(PaymentPageLabel)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(FirstNameLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField3)))
-                            .addComponent(jTextField5))))
-                .addGap(60, 60, 60))
+                                        .addGap(60, 60, 60)
+                                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(FirstNameLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(UserInfoPageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                                        .addGap(60, 60, 60)
+                                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(FirstNameLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jTextField3)))
+                                    .addGroup(MainPanelLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(alreadyMemberLabel))))
+                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addGap(210, 210, 210)
+                                .addComponent(jTextField5)))
+                        .addGap(60, 60, 60))
+                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SushiPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addGap(420, 420, 420)
+                                .addComponent(PaymentPageLabel)))
+                        .addGap(154, 154, 154))))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,8 +208,8 @@ public class UserInfo extends javax.swing.JFrame {
                     .addComponent(UserInfoPageLabel)
                     .addComponent(SushiPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PaymentPageLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FirstNameLabel)
@@ -187,9 +236,12 @@ public class UserInfo extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(37, 37, 37))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(alreadyMemberLabel))
+                .addGap(40, 40, 40))
         );
 
         BluePanel.setBackground(new java.awt.Color(0, 153, 153));
@@ -304,9 +356,41 @@ public class UserInfo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void cancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelButtonMouseClicked
+        // TODO add your handling code here:
+        Order orderPage = new Order();
+        orderPage.setVisible(true);
+    }//GEN-LAST:event_cancelButtonMouseClicked
+
+    private void RegisterButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterButtonMouseClicked
+        // TODO add your handling code here:
+        Order order = new Order();
+    }//GEN-LAST:event_RegisterButtonMouseClicked
+
+    private void alreadyMemberLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alreadyMemberLabelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alreadyMemberLabelMouseClicked
+
+    private void alreadyMemberLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alreadyMemberLabelMouseEntered
+        // TODO add your handling code here:
+        alreadyMemberLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 2, 12)); // NOI18N
+    }//GEN-LAST:event_alreadyMemberLabelMouseEntered
+
+    private void alreadyMemberLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alreadyMemberLabelMouseExited
+        // TODO add your handling code here:
+        alreadyMemberLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 12));
+    }//GEN-LAST:event_alreadyMemberLabelMouseExited
+
+    public void ShowShoppingCart(Price price){
+        BlueSyoPriceLabel.setText(price.getSyo());
+        BlueChikuPriceLabel.setText(price.getChiku());
+        BlueBaiPriceLabel.setText(price.getBai());
+    }
+    
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -353,11 +437,13 @@ public class UserInfo extends javax.swing.JFrame {
     private javax.swing.JPanel MainPanel;
     private javax.swing.JLabel PaymentPageLabel;
     private javax.swing.JLabel PriceLabel;
+    private javax.swing.JButton RegisterButton;
     private javax.swing.JLabel ShoppingCartLabel;
     private javax.swing.JLabel SushiPageLabel;
     private javax.swing.JLabel TotalLabel;
     private javax.swing.JLabel UserInfoPageLabel;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel alreadyMemberLabel;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
