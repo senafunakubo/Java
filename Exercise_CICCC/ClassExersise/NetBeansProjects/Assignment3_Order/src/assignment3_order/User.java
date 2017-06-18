@@ -13,12 +13,13 @@ public class User {
     public  String firstName;
     public  String lastName;
     public  String Email;
-    public  int phoneNumber;
+    public  String phoneNumber;
     public  String address;
     public  String city;
     public  String zipCode;
+    public  String password;
     
-    User(String firstName, String lastName, String Email, int phoneNumber, String address, String city, String zipCode){
+    User(String firstName, String lastName, String Email, String phoneNumber, String address, String city, String zipCode, String password){
       this.firstName = firstName;
       this.lastName = lastName;
       this.Email = Email;
@@ -26,6 +27,7 @@ public class User {
       this.address = address;
       this.city = city;
       this.zipCode = zipCode;
+      this.password = password;
     }
     
     public String getfirstName(){
@@ -40,7 +42,7 @@ public class User {
         return Email;
     }
     
-    public int getphoneNumber(){
+    public String getphoneNumber(){
         return phoneNumber;
     }
     
@@ -56,6 +58,11 @@ public class User {
         return zipCode;
     }
     
+    public String getpassword(){
+        return password;
+    }
+    
+    
     public void setfirstName(String firstName){
         this.firstName = firstName;
     }
@@ -68,7 +75,7 @@ public class User {
         this.Email = Email;
     }
     
-    public void setphoneNumber(int phoneNumber){
+    public void setphoneNumber(String phoneNumber){
         this.phoneNumber = phoneNumber;
     }
     
@@ -82,5 +89,9 @@ public class User {
     
     public void setzipCode(String zipCode){
         this.zipCode = zipCode;
+    }
+    
+    public void setpassword(String password){
+        this.password = password;
     }
 }

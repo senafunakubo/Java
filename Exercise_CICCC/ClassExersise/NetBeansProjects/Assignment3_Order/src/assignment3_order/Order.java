@@ -5,6 +5,10 @@
  */
 package assignment3_order;
 
+import java.math.BigDecimal;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +18,7 @@ import javax.swing.JOptionPane;
 public class Order extends javax.swing.JFrame {
 
 //    Price price = null;
-    Price sushiPrice = new Price(0,0,0);
+    Price sushiPrice = new Price(0,0,0,0,0);
     /**
      * Creates new form Order
      */
@@ -74,6 +78,12 @@ public class Order extends javax.swing.JFrame {
         BlueBaiPriceLabel = new javax.swing.JLabel();
         ShoppingCartLabel = new javax.swing.JLabel();
         CheckOut = new javax.swing.JButton();
+        subTotalLabel = new javax.swing.JLabel();
+        subPriceLabel = new javax.swing.JLabel();
+        taxLabel = new javax.swing.JLabel();
+        taxPriceLabel = new javax.swing.JLabel();
+        deliveryLabel = new javax.swing.JLabel();
+        deliveryPriceLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -438,6 +448,30 @@ public class Order extends javax.swing.JFrame {
             }
         });
 
+        subTotalLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        subTotalLabel.setForeground(new java.awt.Color(251, 251, 251));
+        subTotalLabel.setText("SubTotal");
+
+        subPriceLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        subPriceLabel.setForeground(new java.awt.Color(251, 251, 251));
+        subPriceLabel.setText("$0");
+
+        taxLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        taxLabel.setForeground(new java.awt.Color(251, 251, 251));
+        taxLabel.setText("Tax");
+
+        taxPriceLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        taxPriceLabel.setForeground(new java.awt.Color(251, 251, 251));
+        taxPriceLabel.setText("$0");
+
+        deliveryLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        deliveryLabel.setForeground(new java.awt.Color(251, 251, 251));
+        deliveryLabel.setText("Delivery Fee");
+
+        deliveryPriceLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        deliveryPriceLabel.setForeground(new java.awt.Color(251, 251, 251));
+        deliveryPriceLabel.setText("$0");
+
         javax.swing.GroupLayout BluePanelLayout = new javax.swing.GroupLayout(BluePanel);
         BluePanel.setLayout(BluePanelLayout);
         BluePanelLayout.setHorizontalGroup(
@@ -445,25 +479,37 @@ public class Order extends javax.swing.JFrame {
             .addGroup(BluePanelLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ShoppingCartLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BluePanelLayout.createSequentialGroup()
+                    .addGroup(BluePanelLayout.createSequentialGroup()
                         .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BluePanelLayout.createSequentialGroup()
-                                    .addComponent(BlueSyoLabel)
-                                    .addGap(12, 12, 12))
-                                .addComponent(BlueChikuLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BluePanelLayout.createSequentialGroup()
-                                    .addComponent(BlueBaiLabel)
-                                    .addGap(14, 14, 14)))
-                            .addComponent(TotalLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BlueBaiLabel)
+                            .addComponent(BlueChikuLabel)
+                            .addComponent(BlueSyoLabel))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(BluePanelLayout.createSequentialGroup()
                         .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BlueSyoPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(BlueChikuPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(BlueBaiPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(PriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(CheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addGroup(BluePanelLayout.createSequentialGroup()
+                                .addComponent(ShoppingCartLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(CheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BluePanelLayout.createSequentialGroup()
+                                .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(subTotalLabel)
+                                    .addComponent(taxLabel)
+                                    .addComponent(deliveryLabel)
+                                    .addComponent(TotalLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(subPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(taxPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(deliveryPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(PriceLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(45, 45, 45))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BluePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BlueSyoPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BlueChikuPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BlueBaiPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(45, 45, 45))
         );
         BluePanelLayout.setVerticalGroup(
@@ -483,13 +529,25 @@ public class Order extends javax.swing.JFrame {
                 .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BlueBaiLabel)
                     .addComponent(BlueBaiPriceLabel))
-                .addGap(99, 99, 99)
+                .addGap(45, 45, 45)
+                .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(subTotalLabel)
+                    .addComponent(subPriceLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deliveryLabel)
+                    .addComponent(deliveryPriceLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(taxLabel)
+                    .addComponent(taxPriceLabel))
+                .addGap(50, 50, 50)
                 .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PriceLabel)
                     .addComponent(TotalLabel))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(CheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -644,14 +702,38 @@ public class Order extends javax.swing.JFrame {
         String result3 = Integer.toString(sum3);
         BlueBaiPriceLabel.setText("$" + result3);
         
-        //For calculate all the sum
-        int allResult = sum + sum2 + sum3;
-        String allSum = Integer.toString(allResult);
-        PriceLabel.setText("$" + allSum);
+        //For calculate subSum
+        int subSum = sum + sum2 + sum3;
+        String subSumSt = Integer.toString(subSum);
+        subPriceLabel.setText("$" + subSumSt);
+        
+        //For calculate delivery fee
+        int deliveryFee = 3;
+        String fee = Integer.toString(deliveryFee);
+        deliveryPriceLabel.setText("$" + fee);
+        
+        //For Tax(GST:5%)
+        BigDecimal tax = new BigDecimal(0.05);
+        BigDecimal subAndFee = new BigDecimal(subSum + deliveryFee);
+        
+        double calculatedTax = tax.multiply(subAndFee).doubleValue();
+        BigDecimal taxBD = new BigDecimal(calculatedTax);
+        BigDecimal bd2 = taxBD.setScale(2, BigDecimal.ROUND_HALF_UP);
+        String calculatedTaxSt = Double.toString(bd2.doubleValue());
+        taxPriceLabel.setText("$" + calculatedTaxSt);
+        
+        //For all sum
+        BigDecimal subSumBD = new BigDecimal((double)subSum);
+        BigDecimal deliFeeBD = new BigDecimal((double)deliveryFee);
+        double allsum = subSumBD.add(deliFeeBD).add(taxBD).doubleValue();
+        String allsumSt = Double.toString(allsum);
+        PriceLabel.setText("$" + allsumSt);
         
         sushiPrice.setSyo(sum);
         sushiPrice.setChiku(sum2);
         sushiPrice.setBai(sum3);
+        sushiPrice.setDfee(deliveryFee);
+        sushiPrice.setTax(bd2.doubleValue());
         
     }//GEN-LAST:event_AddCartButtonMouseClicked
 
@@ -664,21 +746,31 @@ public class Order extends javax.swing.JFrame {
         jTextField1.setText("0");
         jTextField2.setText("0");
         jTextField3.setText("0");
+        
         BlueSyoPriceLabel.setText("$0");
         BlueChikuPriceLabel.setText("$0");
         BlueBaiPriceLabel.setText("$0");
+        subPriceLabel.setText("$0");
+        deliveryPriceLabel.setText("$0");
+        taxPriceLabel.setText("$0");
         PriceLabel.setText("$0");
     }//GEN-LAST:event_ResetButtonMouseClicked
 
     private void CheckOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckOutMouseClicked
         // TODO add your handling code here:
         String cutSum = PriceLabel.getText().substring(1);
-        int price = Integer.parseInt(cutSum);
+        double price = Double.parseDouble(cutSum);
+        
         if(price>0){
-          UserInfo infoPage= new UserInfo();
+          UserInfo infoPage = new UserInfo();
+          
           infoPage.ShowShoppingCart(sushiPrice);
           infoPage.setVisible(true);
-        }else{
+          
+//          PaymentShoppingcart payShop = new PaymentShoppingcart(sushiPrice);
+        }
+        else
+        {
           JOptionPane.showMessageDialog(null, "Please add more than one item.");
         }
     }//GEN-LAST:event_CheckOutMouseClicked
@@ -753,6 +845,8 @@ public class Order extends javax.swing.JFrame {
     private javax.swing.JLabel SushiSyoPicLabel;
     private javax.swing.JLabel TotalLabel;
     private javax.swing.JLabel UserInfoPageLabel;
+    private javax.swing.JLabel deliveryLabel;
+    private javax.swing.JLabel deliveryPriceLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -760,5 +854,9 @@ public class Order extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel subPriceLabel;
+    private javax.swing.JLabel subTotalLabel;
+    private javax.swing.JLabel taxLabel;
+    private javax.swing.JLabel taxPriceLabel;
     // End of variables declaration//GEN-END:variables
 }

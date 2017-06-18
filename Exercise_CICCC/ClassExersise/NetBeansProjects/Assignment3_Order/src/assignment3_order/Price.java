@@ -15,11 +15,15 @@ public class Price {
     public  int syo;
     public  int chiku;
     public  int bai;
+    public  double tax;
+    public  int Dfee;
     
-    Price(int syo, int chiku, int bai){
+    Price(int syo, int chiku, int bai, double tax, int Dfee){
       this.syo = syo;
       this.chiku = chiku;
       this.bai = bai;
+      this.tax = tax;
+      this.Dfee = Dfee;
     }
     
     public int getSyo(){
@@ -34,6 +38,14 @@ public class Price {
         return bai;
     }
     
+    public double getTax(){
+        return tax;
+    }
+    
+    public int getDfee(){
+        return Dfee;
+    }
+    
     public void setSyo(int syo){
         this.syo = syo;
     }
@@ -44,6 +56,14 @@ public class Price {
     
     public void setBai(int bai){
         this.bai = bai;
+    }
+    
+    public void setTax(double tax){
+        this.tax = tax;
+    }
+    
+    public void setDfee(int Dfee){
+        this.Dfee = Dfee;
     }
     
     Price getPrice(){

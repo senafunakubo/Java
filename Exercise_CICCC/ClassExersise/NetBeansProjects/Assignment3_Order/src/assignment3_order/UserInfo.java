@@ -15,7 +15,8 @@ import javax.swing.JOptionPane;
  * @author senafunakubo
  */
 public class UserInfo extends javax.swing.JFrame {
-    User user = new User("","","",0,"","","");
+    User user = new User("","","","","","","","");
+    Price price;
     
     Connection connection = null;
     PreparedStatement pst = null;
@@ -43,7 +44,7 @@ public class UserInfo extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         firstNameLabel = new javax.swing.JLabel();
         lastNameLabel = new javax.swing.JLabel();
-        EmailLabel = new javax.swing.JLabel();
+        PasswordLabel = new javax.swing.JLabel();
         firstNameTF = new javax.swing.JTextField();
         lastNameTF = new javax.swing.JTextField();
         EmailTF = new javax.swing.JTextField();
@@ -58,6 +59,8 @@ public class UserInfo extends javax.swing.JFrame {
         cancelButton = new javax.swing.JButton();
         RegisterButton = new javax.swing.JButton();
         alreadyMemberLabel = new javax.swing.JLabel();
+        EmailLabel1 = new javax.swing.JLabel();
+        PasswordField = new javax.swing.JPasswordField();
         BluePanel = new javax.swing.JPanel();
         TotalLabel = new javax.swing.JLabel();
         PriceLabel = new javax.swing.JLabel();
@@ -68,6 +71,12 @@ public class UserInfo extends javax.swing.JFrame {
         BlueChikuPriceLabel = new javax.swing.JLabel();
         BlueBaiPriceLabel = new javax.swing.JLabel();
         ShoppingCartLabel = new javax.swing.JLabel();
+        SubTotalLabel = new javax.swing.JLabel();
+        taxLabel = new javax.swing.JLabel();
+        deliFeeLabel = new javax.swing.JLabel();
+        subTPriceLabel = new javax.swing.JLabel();
+        taxPriceLabel = new javax.swing.JLabel();
+        deliFeePriceLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,8 +104,8 @@ public class UserInfo extends javax.swing.JFrame {
         lastNameLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
         lastNameLabel.setText("Last name");
 
-        EmailLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
-        EmailLabel.setText("Email");
+        PasswordLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        PasswordLabel.setText("Password");
 
         firstNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +163,9 @@ public class UserInfo extends javax.swing.JFrame {
             }
         });
 
+        EmailLabel1.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        EmailLabel1.setText("Email");
+
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
@@ -186,13 +198,19 @@ public class UserInfo extends javax.swing.JFrame {
                                             .addComponent(UserInfoPageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
                                         .addGap(60, 60, 60)
                                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(EmailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(PasswordField)
                                             .addComponent(EmailTF)))
                                     .addGroup(MainPanelLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(30, 30, 30)
-                                        .addComponent(alreadyMemberLabel))))
+                                        .addComponent(alreadyMemberLabel))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MainPanelLayout.createSequentialGroup()
+                                        .addGap(270, 270, 270)
+                                        .addComponent(EmailLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MainPanelLayout.createSequentialGroup()
+                                        .addGap(270, 270, 270)
+                                        .addComponent(PasswordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(MainPanelLayout.createSequentialGroup()
                                 .addGap(210, 210, 210)
                                 .addComponent(AddressTF)))
@@ -220,7 +238,7 @@ public class UserInfo extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(firstNameLabel)
                     .addComponent(lastNameLabel)
-                    .addComponent(EmailLabel))
+                    .addComponent(EmailLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(firstNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,12 +255,14 @@ public class UserInfo extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cityLabel)
-                    .addComponent(zipCodeLabel))
+                    .addComponent(zipCodeLabel)
+                    .addComponent(PasswordLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cityTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(zipCodeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(zipCodeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,32 +309,69 @@ public class UserInfo extends javax.swing.JFrame {
         ShoppingCartLabel.setForeground(new java.awt.Color(255, 255, 255));
         ShoppingCartLabel.setText("Shopping Cart");
 
+        SubTotalLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        SubTotalLabel.setForeground(new java.awt.Color(251, 251, 251));
+        SubTotalLabel.setText("SubTotal");
+
+        taxLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        taxLabel.setForeground(new java.awt.Color(251, 251, 251));
+        taxLabel.setText("Tax");
+
+        deliFeeLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        deliFeeLabel.setForeground(new java.awt.Color(251, 251, 251));
+        deliFeeLabel.setText("Delivery Fee");
+
+        subTPriceLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        subTPriceLabel.setForeground(new java.awt.Color(255, 255, 255));
+        subTPriceLabel.setText("$0");
+
+        taxPriceLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        taxPriceLabel.setForeground(new java.awt.Color(255, 255, 255));
+        taxPriceLabel.setText("$0");
+
+        deliFeePriceLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
+        deliFeePriceLabel.setForeground(new java.awt.Color(255, 255, 255));
+        deliFeePriceLabel.setText("$0");
+
         javax.swing.GroupLayout BluePanelLayout = new javax.swing.GroupLayout(BluePanel);
         BluePanel.setLayout(BluePanelLayout);
         BluePanelLayout.setHorizontalGroup(
             BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BluePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BluePanelLayout.createSequentialGroup()
+                        .addComponent(BlueChikuLabel)
+                        .addGap(111, 111, 111))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BluePanelLayout.createSequentialGroup()
+                        .addComponent(BlueSyoLabel)
+                        .addGap(123, 123, 123))))
             .addGroup(BluePanelLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ShoppingCartLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BluePanelLayout.createSequentialGroup()
+                    .addGroup(BluePanelLayout.createSequentialGroup()
                         .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BluePanelLayout.createSequentialGroup()
-                                    .addComponent(BlueSyoLabel)
-                                    .addGap(12, 12, 12))
-                                .addComponent(BlueChikuLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BluePanelLayout.createSequentialGroup()
-                                    .addComponent(BlueBaiLabel)
-                                    .addGap(14, 14, 14)))
-                            .addComponent(TotalLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BlueSyoPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(BluePanelLayout.createSequentialGroup()
+                                .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(SubTotalLabel)
+                                    .addComponent(taxLabel)
+                                    .addComponent(deliFeeLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BlueBaiPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(subTPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(taxPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(deliFeePriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(ShoppingCartLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(BlueChikuPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(BlueBaiPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(PriceLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(45, 45, 45))
+                            .addComponent(BlueSyoPriceLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(45, 45, 45))
+                    .addGroup(BluePanelLayout.createSequentialGroup()
+                        .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TotalLabel)
+                            .addComponent(BlueBaiLabel))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         BluePanelLayout.setVerticalGroup(
             BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,11 +390,23 @@ public class UserInfo extends javax.swing.JFrame {
                 .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BlueBaiLabel)
                     .addComponent(BlueBaiPriceLabel))
-                .addGap(99, 99, 99)
+                .addGap(45, 45, 45)
+                .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SubTotalLabel)
+                    .addComponent(subTPriceLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deliFeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deliFeePriceLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(taxLabel)
+                    .addComponent(taxPriceLabel))
+                .addGap(50, 50, 50)
                 .addGroup(BluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PriceLabel)
                     .addComponent(TotalLabel))
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -352,7 +421,7 @@ public class UserInfo extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(BluePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -375,19 +444,20 @@ public class UserInfo extends javax.swing.JFrame {
         String email = EmailTF.getText();
         
         String phoneNum = PhoneNumTF.getText();
-        int phoneNumIn = Integer.parseInt(phoneNum);
         
         String address = AddressTF.getText();
         String city = cityTF.getText();
         String zipCode = zipCodeTF.getText();
+        String password = PasswordField.getText();
         
         user.setfirstName(firstName);
         user.setlastName(lastName);
         user.setEmail(email);
-        user.setphoneNumber(phoneNumIn);
+        user.setphoneNumber(phoneNum);
         user.setaddress(address);
         user.setcity(city);
         user.setzipCode(zipCode);
+        user.setpassword(password);
         
         try
         {
@@ -401,6 +471,8 @@ public class UserInfo extends javax.swing.JFrame {
 
     private void alreadyMemberLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alreadyMemberLabelMouseClicked
         // TODO add your handling code here:
+        AlreadyMember already = new AlreadyMember();
+        already.setVisible(true);
     }//GEN-LAST:event_alreadyMemberLabelMouseClicked
 
     private void alreadyMemberLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alreadyMemberLabelMouseEntered
@@ -418,8 +490,14 @@ public class UserInfo extends javax.swing.JFrame {
         BlueSyoPriceLabel.setText("$" + Integer.toString(price.getSyo()));
         BlueChikuPriceLabel.setText("$" + Integer.toString(price.getChiku()));
         BlueBaiPriceLabel.setText("$" + Integer.toString(price.getBai()));
-        int allSum = price.getSyo() + price.getChiku() + price.getBai();
-        PriceLabel.setText("$" + Integer.toString(allSum));
+        
+        int subSum = price.getSyo() + price.getChiku() + price.getBai();
+        subTPriceLabel.setText("$" + Integer.toString(subSum));
+        deliFeePriceLabel.setText("$" + Integer.toString(price.getDfee()));
+        
+        taxPriceLabel.setText("$" + Double.toString(price.getTax()));
+        double allSum = subSum + (double)price.getDfee() + (double)price.getTax();
+        PriceLabel.setText("$" + Double.toString(allSum));
         
     }
     
@@ -471,14 +549,17 @@ public class UserInfo extends javax.swing.JFrame {
     private javax.swing.JPanel BluePanel;
     private javax.swing.JLabel BlueSyoLabel;
     private javax.swing.JLabel BlueSyoPriceLabel;
-    private javax.swing.JLabel EmailLabel;
+    private javax.swing.JLabel EmailLabel1;
     private javax.swing.JTextField EmailTF;
     private javax.swing.JPanel MainPanel;
+    private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JLabel PasswordLabel;
     private javax.swing.JLabel PaymentPageLabel;
     private javax.swing.JTextField PhoneNumTF;
     private javax.swing.JLabel PriceLabel;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JLabel ShoppingCartLabel;
+    private javax.swing.JLabel SubTotalLabel;
     private javax.swing.JLabel SushiPageLabel;
     private javax.swing.JLabel TotalLabel;
     private javax.swing.JLabel UserInfoPageLabel;
@@ -486,12 +567,17 @@ public class UserInfo extends javax.swing.JFrame {
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JTextField cityTF;
+    private javax.swing.JLabel deliFeeLabel;
+    private javax.swing.JLabel deliFeePriceLabel;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JTextField firstNameTF;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameTF;
     private javax.swing.JLabel phoneNumLabel;
+    private javax.swing.JLabel subTPriceLabel;
+    private javax.swing.JLabel taxLabel;
+    private javax.swing.JLabel taxPriceLabel;
     private javax.swing.JLabel zipCodeLabel;
     private javax.swing.JTextField zipCodeTF;
     // End of variables declaration//GEN-END:variables
