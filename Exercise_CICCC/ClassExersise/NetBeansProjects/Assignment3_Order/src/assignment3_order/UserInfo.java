@@ -9,14 +9,14 @@ package assignment3_order;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 /**
  *
  * @author senafunakubo
  */
 public class UserInfo extends javax.swing.JFrame {
     User user = new User("","","","","","","","");
-    Price price;
+    Price price1 = new Price(0,0,0,0.0,0);
     
     Connection connection = null;
     PreparedStatement pst = null;
@@ -105,13 +105,7 @@ public class UserInfo extends javax.swing.JFrame {
         lastNameLabel.setText("Last name");
 
         PasswordLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
-        PasswordLabel.setText("Password");
-
-        firstNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameTFActionPerformed(evt);
-            }
-        });
+        PasswordLabel.setText("Password (more than 5 digits)");
 
         phoneNumLabel.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 10)); // NOI18N
         phoneNumLabel.setText("Phone number");
@@ -427,14 +421,11 @@ public class UserInfo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void firstNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameTFActionPerformed
-
     private void cancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelButtonMouseClicked
         // TODO add your handling code here:
         Order orderPage = new Order();
         orderPage.setVisible(true);
+        dispose();
     }//GEN-LAST:event_cancelButtonMouseClicked
 
     private void RegisterButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterButtonMouseClicked
@@ -458,10 +449,12 @@ public class UserInfo extends javax.swing.JFrame {
         user.setcity(city);
         user.setzipCode(zipCode);
         user.setpassword(password);
+
         
         try
         {
-            ForInsertUser forInsertUser = new ForInsertUser(user);
+            ForInsertUser forInsertUser = new ForInsertUser(user,price1);
+            dispose();
         }
         catch (SQLException ex)
         {
@@ -471,8 +464,9 @@ public class UserInfo extends javax.swing.JFrame {
 
     private void alreadyMemberLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alreadyMemberLabelMouseClicked
         // TODO add your handling code here:
-        AlreadyMember already = new AlreadyMember();
+        AlreadyMember already = new AlreadyMember(price1);
         already.setVisible(true);
+        dispose();
     }//GEN-LAST:event_alreadyMemberLabelMouseClicked
 
     private void alreadyMemberLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alreadyMemberLabelMouseEntered
@@ -486,7 +480,7 @@ public class UserInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_alreadyMemberLabelMouseExited
 
     public void ShowShoppingCart(Price price){
-        
+        price1 = price;
         BlueSyoPriceLabel.setText("$" + Integer.toString(price.getSyo()));
         BlueChikuPriceLabel.setText("$" + Integer.toString(price.getChiku()));
         BlueBaiPriceLabel.setText("$" + Integer.toString(price.getBai()));
@@ -500,6 +494,7 @@ public class UserInfo extends javax.swing.JFrame {
         PriceLabel.setText("$" + Double.toString(allSum));
         
     }
+    
     
     /**
      * @param args the command line arguments

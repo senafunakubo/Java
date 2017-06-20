@@ -15,15 +15,10 @@ import java.sql.SQLException;
  * @author senafunakubo
  */
 class ForInsertUser {
+
     
-    public ForInsertUser(User user) throws SQLException{
-        
-//        price.setSyo(price.getSyo());
-//        price.setChiku(price.getChiku());
-//        price.setBai(price.getBai());
-//        price.setTax(price.getTax());
-//        price.setDfee(price.getDfee());
-        
+    public ForInsertUser(User user, Price price) throws SQLException{
+               
         Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/UserInfo","APP","APP");
         PreparedStatement st = con.prepareStatement("insert into USERINFODB(FirstName,LastName,Email,PhoneNumber,Address,City,Zipcode,Password)values(?,?,?,?,?,?,?,?)");
         st.setString(1, user.getfirstName());
@@ -39,22 +34,11 @@ class ForInsertUser {
         
         if(a>0){
             System.out.println("Row Update");
-            Payment paymentPage = new Payment();
+            Payment paymentPage = new Payment(price);
                     paymentPage.ShowUserInfo(user.getfirstName(),user.getlastName(),user.getEmail(),user.getphoneNumber(),user.getaddress(),user.getcity(),user.getzipCode(),user.getpassword());
-//                    paymentPage.ShowShoppingCart(price);
+                    paymentPage.ShowShoppingCart(price);
                     paymentPage.setVisible(true);
+//                    System.err.println("paymentPage.setVisible(true); open!!");
         }
     }
-    
-//    public void forShoppingCart(Price price){
-//        
-//        price.setSyo(price.getSyo());
-//        price.setChiku(price.getChiku());
-//        price.setBai(price.getBai());
-//        price.setTax(price.getTax());
-//        price.setDfee(price.getDfee());
-//        
-//        Payment paymentPage = new Payment();
-//        paymentPage.ShowShoppingCart(price);
-//    }
 }

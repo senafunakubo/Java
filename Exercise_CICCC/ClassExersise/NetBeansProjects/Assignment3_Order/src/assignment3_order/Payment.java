@@ -5,11 +5,14 @@
  */
 package assignment3_order;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
+//import java.sql.Connection;
+//import java.sql.DriverManager;
+//import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+//import java.sql.Statement;
 
 /**
  *
@@ -17,10 +20,16 @@ import java.sql.Statement;
  */
 public class Payment extends javax.swing.JFrame {
 
+    FinishOrder finish = new FinishOrder();
+    Price price1 = new Price(0,0,0,0.0,0);
+//    Boolean test = false;
+    
     /**
      * Creates new form Payment
+     * @param price
      */
-    public Payment() {
+    public Payment(Price price) {
+        price1 = price;
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -146,16 +155,31 @@ public class Payment extends javax.swing.JFrame {
         buttonGroup.add(CashRadio);
         CashRadio.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 11)); // NOI18N
         CashRadio.setText("Cash On Delivery");
+        CashRadio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CashRadioMouseClicked(evt);
+            }
+        });
 
         CreditRatio.setBackground(new java.awt.Color(251, 251, 251));
         buttonGroup.add(CreditRatio);
         CreditRatio.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 11)); // NOI18N
         CreditRatio.setText("Credit Card");
+        CreditRatio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CreditRatioMouseClicked(evt);
+            }
+        });
 
         VisaRatio.setBackground(new java.awt.Color(251, 251, 251));
         buttonGroup.add(VisaRatio);
         VisaRatio.setFont(new java.awt.Font("Tsukushi A Round Gothic", 0, 11)); // NOI18N
         VisaRatio.setText("VISA Checkout");
+        VisaRatio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VisaRatioMouseClicked(evt);
+            }
+        });
 
         HowWouldLabel.setFont(new java.awt.Font("Tsukushi B Round Gothic", 0, 13)); // NOI18N
         HowWouldLabel.setText("How would you like to pay ?");
@@ -411,14 +435,47 @@ public class Payment extends javax.swing.JFrame {
 
     private void OrderButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderButtonMouseClicked
         // TODO add your handling code here:
+        Calendar cal1 = Calendar.getInstance();
+        cal1.add(Calendar.MINUTE, 40);
+        SimpleDateFormat sdf1 = new SimpleDateFormat("a hh:mm");
         
+        
+        finish.ShowTheTime(sdf1.format(cal1.getTime()));
+        
+        if(CashRadio.isSelected()||CreditRatio.isSelected()||VisaRatio.isSelected()){
+            finish.setVisible(true);
+            System.out.println("okkk1");
+            dispose();
+            System.out.println("okkk2");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please select a payment method.");
+        }
     }//GEN-LAST:event_OrderButtonMouseClicked
 
     private void cancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelButtonMouseClicked
         // TODO add your handling code here:
         UserInfo userInfo = new UserInfo();
+        userInfo.ShowShoppingCart(price1);
         userInfo.setVisible(true);
+        dispose();
     }//GEN-LAST:event_cancelButtonMouseClicked
+
+    private void CashRadioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CashRadioMouseClicked
+        // TODO add your handling code here:
+        finish.ShowPaymentInfo("Cash");
+    }//GEN-LAST:event_CashRadioMouseClicked
+
+    private void CreditRatioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreditRatioMouseClicked
+        // TODO add your handling code here:
+        finish.ShowPaymentInfo("Credit");
+    }//GEN-LAST:event_CreditRatioMouseClicked
+
+    private void VisaRatioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VisaRatioMouseClicked
+        // TODO add your handling code here:
+        finish.ShowPaymentInfo("VISA Checkout");
+    }//GEN-LAST:event_VisaRatioMouseClicked
 
     //For first customer
     public void ShowUserInfo(String firstName, String lastName, String email,String phoneNum,String address,String city,String zipCode,String password) throws SQLException{
@@ -431,6 +488,8 @@ public class Payment extends javax.swing.JFrame {
         ZipCodeLabel.setText("Zip code: " + zipCode);
         String st = password.substring(password.length()-4);
         PasswordLabel.setText("Password: *****" + st);
+        
+        finish.ShowUserInfo(firstName);
     }
     
     //For registered customer
@@ -444,6 +503,8 @@ public class Payment extends javax.swing.JFrame {
         ZipCodeLabel.setText("Zip code:  " + UzipCode);
         String st = Upassword.substring(Upassword.length()-4);
         PasswordLabel.setText("Password:  *****" + st);
+        
+        finish.ShowUserInfo(UfirstName);
     }
     
     public void ShowShoppingCart(Price price){
@@ -460,42 +521,44 @@ public class Payment extends javax.swing.JFrame {
         double allSum = subSum + (double)price.getDfee() + (double)price.getTax();
         PriceLabel.setText("$" + Double.toString(allSum));
         
+        finish.ShowPriceInfo(Double.toString(allSum));
+        
     }
     
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Payment().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Payment().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddressLabel;

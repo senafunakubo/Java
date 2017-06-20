@@ -6,9 +6,7 @@
 package assignment3_order;
 
 import java.math.BigDecimal;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,7 +15,6 @@ import javax.swing.JOptionPane;
  */
 public class Order extends javax.swing.JFrame {
 
-//    Price price = null;
     Price sushiPrice = new Price(0,0,0,0,0);
     /**
      * Creates new form Order
@@ -166,21 +163,11 @@ public class Order extends javax.swing.JFrame {
                 PlusMouseClicked(evt);
             }
         });
-        Plus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PlusActionPerformed(evt);
-            }
-        });
 
         Plus2.setText("+");
         Plus2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Plus2MouseClicked(evt);
-            }
-        });
-        Plus2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Plus2ActionPerformed(evt);
             }
         });
 
@@ -190,49 +177,19 @@ public class Order extends javax.swing.JFrame {
                 MinusMouseClicked(evt);
             }
         });
-        Minus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MinusActionPerformed(evt);
-            }
-        });
 
         Minus3.setText("-");
-        Minus3.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                Minus3ComponentAdded(evt);
-            }
-        });
         Minus3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Minus3MouseClicked(evt);
             }
         });
-        Minus3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Minus3ActionPerformed(evt);
-            }
-        });
 
         jTextField1.setText("0");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         jTextField2.setText("0");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
 
         jTextField3.setText("0");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
 
         Minus2.setText("-");
         Minus2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -240,21 +197,11 @@ public class Order extends javax.swing.JFrame {
                 Minus2MouseClicked(evt);
             }
         });
-        Minus2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Minus2ActionPerformed(evt);
-            }
-        });
 
         Plus3.setText("+");
         Plus3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Plus3MouseClicked(evt);
-            }
-        });
-        Plus3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Plus3ActionPerformed(evt);
             }
         });
 
@@ -267,11 +214,6 @@ public class Order extends javax.swing.JFrame {
                 AddCartButtonMouseClicked(evt);
             }
         });
-        AddCartButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddCartButtonActionPerformed(evt);
-            }
-        });
 
         ResetButton.setBackground(new java.awt.Color(251, 251, 251));
         ResetButton.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
@@ -280,11 +222,6 @@ public class Order extends javax.swing.JFrame {
         ResetButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ResetButtonMouseClicked(evt);
-            }
-        });
-        ResetButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ResetButtonActionPerformed(evt);
             }
         });
 
@@ -568,34 +505,6 @@ public class Order extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void Minus3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Minus3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Minus3ActionPerformed
-
-    private void Plus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plus2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Plus2ActionPerformed
-
-    private void PlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PlusActionPerformed
-
-    private void MinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MinusActionPerformed
-
     private void PlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlusMouseClicked
         // TODO add your handling code here:
         String text = jTextField1.getText();
@@ -606,14 +515,6 @@ public class Order extends javax.swing.JFrame {
         String st1 = Integer.toString(count);
         jTextField1.setText(st1);
     }//GEN-LAST:event_PlusMouseClicked
-
-    private void Minus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Minus2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Minus2ActionPerformed
-
-    private void Plus3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plus3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Plus3ActionPerformed
 
     private void MinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinusMouseClicked
         // TODO add your handling code here:
@@ -659,10 +560,6 @@ public class Order extends javax.swing.JFrame {
         jTextField3.setText(st1);
     }//GEN-LAST:event_Plus3MouseClicked
 
-    private void Minus3ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_Minus3ComponentAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Minus3ComponentAdded
-
     private void Minus3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Minus3MouseClicked
         // TODO add your handling code here:
         String text = jTextField3.getText();
@@ -673,10 +570,6 @@ public class Order extends javax.swing.JFrame {
         String st1 = Integer.toString(count);
         jTextField3.setText(st1);
     }//GEN-LAST:event_Minus3MouseClicked
-
-    private void AddCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCartButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddCartButtonActionPerformed
 
     private void AddCartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddCartButtonMouseClicked
         // TODO add your handling code here:
@@ -737,10 +630,6 @@ public class Order extends javax.swing.JFrame {
         
     }//GEN-LAST:event_AddCartButtonMouseClicked
 
-    private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ResetButtonActionPerformed
-
     private void ResetButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetButtonMouseClicked
         // TODO add your handling code here:
         jTextField1.setText("0");
@@ -766,8 +655,8 @@ public class Order extends javax.swing.JFrame {
           
           infoPage.ShowShoppingCart(sushiPrice);
           infoPage.setVisible(true);
+          dispose();
           
-//          PaymentShoppingcart payShop = new PaymentShoppingcart(sushiPrice);
         }
         else
         {
