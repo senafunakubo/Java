@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,7 +29,6 @@ public class connClass {
                 paymentPage.ShowShoppingCart(price);
                  
                 paymentPage.setVisible(true);
-//                System.err.println("paymentPage.setVisible(true); open!! 22");
             }
             
 //            if(!(email.equals(rs.getString(3))) && !(password.equals(rs.getString(8)))){

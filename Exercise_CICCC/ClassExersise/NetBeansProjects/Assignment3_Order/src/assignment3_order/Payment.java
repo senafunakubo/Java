@@ -444,9 +444,7 @@ public class Payment extends javax.swing.JFrame {
         
         if(CashRadio.isSelected()||CreditRatio.isSelected()||VisaRatio.isSelected()){
             finish.setVisible(true);
-            System.out.println("okkk1");
             dispose();
-            System.out.println("okkk2");
         }
         else
         {
