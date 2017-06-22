@@ -74,7 +74,7 @@ public class BasicOfAlgorithms {
         }
     }
 
-    public String linearSearchforValue(int value){
+    public String linearSearchForValue(int value){
 
         boolean valueInArray = false;
 
@@ -121,7 +121,7 @@ public class BasicOfAlgorithms {
      newArray.printArray();
 
      System.out.println("\n");
-     newArray.linearSearchforValue(17);
+     newArray.linearSearchForValue(17);
  }
 
 }

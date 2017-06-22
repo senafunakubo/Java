@@ -27,10 +27,5 @@ public class Checking extends Account {
         return account;
     }
 
-    public void getInformation(){
-        System.out.println("Checking Account Information");
-        System.out.println("Account Number : "+ this.getNumber());
-        System.out.println("Account Balance : "+ this.getBalance());
-    }
 
 }

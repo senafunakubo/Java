@@ -12,9 +12,9 @@ public class DemoAccounts {
         checking.setBalance(10.21);
         saving.setBalance(200.12);
 
-        checking.getInformation();
+        System.out.println(checking.toString());
         System.out.println("");
-        saving.getInformation();
+        System.out.println(saving.toString());
     }
 
 }

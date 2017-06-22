@@ -57,9 +57,9 @@ public class AccountArray {
             System.out.println(a.toString());
         }
 
-        for(int i=0;i<arrayList.size();i++){
-            System.out.println(arrayList.get(i).getBalance());
-        }
+//        for(int i=0;i<arrayList.size();i++){
+//            System.out.println(arrayList.get(i).getBalance());
+//        }
     }
 
 }
