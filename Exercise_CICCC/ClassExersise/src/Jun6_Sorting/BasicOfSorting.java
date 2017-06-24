@@ -141,10 +141,11 @@ public class BasicOfSorting {
                         swapValues(j, j+1);
 
                         printHorzArray(i, j);
-                        
+
                     }
                 }
             }
+            System.out.println("\n\n\n");
         }
 
         public void swapValues(int indexOne, int indexTwo){
@@ -168,12 +169,19 @@ public class BasicOfSorting {
             int highIndex = arraySize - 1;
 
             while(lowIndex <= highIndex){
-                int middleIndex = (highIndex + lowIndex) / 2;
-                if(theArray[middleIndex] < value)
-                    lowIndex = middleIndex + 1;
 
-                  else if(theArray[middleIndex] > value)
-                      highIndex = middleIndex - 1;
+                int middleIndex = (highIndex + lowIndex) / 2;
+                System.out.println("\nmidIndexは、" + Integer.toString(middleIndex) +" lowIndexは、" + Integer.toString(lowIndex) + " higIndexは、" + Integer.toString(highIndex));
+
+                if(theArray[middleIndex] < value) {
+                    lowIndex = middleIndex + 1;
+                    System.out.println("lowIndexは、" + Integer.toString(lowIndex) + "になったよ！！！");
+                }
+
+                  else if(theArray[middleIndex] > value) {
+                    highIndex = middleIndex - 1;
+                    System.out.println("higIndexは、" + Integer.toString(highIndex) + "になったよ！！！！");
+                }
 
                   else {
                     System.out.println("\nFound a Match for " + value + " at Index " + middleIndex);
@@ -191,6 +199,7 @@ public class BasicOfSorting {
 
             for(int x=0; x < arraySize; x++){
                 int minimum = x;
+                System.out.println("\nminimumは、" + Integer.toString(minimum));
 
                 for(int y=x; y < arraySize; y++){
 
@@ -198,6 +207,7 @@ public class BasicOfSorting {
                     // this from > to <
                         if(theArray[minimum]>theArray[y]){
                           minimum = y;
+                            System.out.println("\nここでminimumは、" + Integer.toString(minimum));
                         }
                 }
                 swapValues(x, minimum);
@@ -212,17 +222,23 @@ public class BasicOfSorting {
 
         public void insertionSort(){
             for (int i = 1; i < arraySize; i++){
+
                 int j = i;
+
                 int toInsert = theArray[i];
+
                    while ((j > 0) && (theArray[j-1] > toInsert)){
-                    theArray[j] = theArray[j-1];
-                    j--;
-                    printHorzArray(i, j);
+
+                      theArray[j] = theArray[j-1];
+                      j--;
+                      printHorzArray(i, j);
                    }
 
                   theArray[j] = toInsert;
+
                   printHorzArray(i, j);
-                  System.out.println("\nArray[i] = " + theArray[i] + " Array[j] = " + theArray[j] + " toInsert = " + toInsert + "\n");
+
+                  System.out.println("\nArray[i] = " + theArray[i] + ",  Array[j] = " + theArray[j] + ",  toInsert = " + toInsert + "\n");
             }
         }
 
@@ -231,12 +247,13 @@ public class BasicOfSorting {
             newArray.generateRandomArray();
             newArray.printHorzArray(-1,-1);
 //             newArray.linearSearchForValue(10);
-             newArray.bubbleSort();
+//             newArray.bubbleSort();
 
             // We must Sort first
-            // newArray.binarySearchForValue(17);
-            // newArray.selectionSort();
-//            newArray.insertionSort();
+//             newArray.binarySearchForValue(17);
+
+//             newArray.selectionSort();
+            newArray.insertionSort();
         }
 
 }

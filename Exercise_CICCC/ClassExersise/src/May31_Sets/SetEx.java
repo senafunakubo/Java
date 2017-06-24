@@ -18,12 +18,20 @@ public class SetEx {
         ex.add("aaaa");
         ex.add("xxxx");
         ex.add("cccc");
+        ex.add("aaaa");
         ex.add("zzzz");
         ex.add("pppp");
         ex.remove("cccc");
 
+        Set<Integer> exInt = new HashSet<Integer>();
+        exInt.add(12);
+        exInt.add(1);
+        exInt.add(8);
+        System.out.println(exInt + "\n");
+
 
         System.out.println("** HashSet **");
+        System.out.println("順番ランダム、同じ要素は弾かれる");
         System.out.println("its size " + ex.size());
         System.out.println("values are " + ex);
         System.out.println("");
@@ -38,6 +46,7 @@ public class SetEx {
         ex.remove("aaaa");
 
         System.out.println("** LinkedHashSet **");
+        System.out.println("順番そのまま");
         System.out.println("its size " + ex1.size());
         System.out.println("values are " + ex1);
         System.out.println("");
@@ -52,6 +61,7 @@ public class SetEx {
         ex2.remove("zzzz");
 
         System.out.println("** TreeSet **");
+        System.out.println("アルファベット順");
         System.out.println("its size " + ex2.size());
         System.out.println("values are " + ex2);
         System.out.println("\n\n");

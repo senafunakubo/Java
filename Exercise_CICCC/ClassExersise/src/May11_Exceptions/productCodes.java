@@ -34,7 +34,7 @@ import java.util.Scanner;
                 System.out.print("Enter product code(STOP to quit) : ");
                 code = scan.nextLine();
             }
-            System.out.println("# of valid code enterd :" + valid);
-            System.out.println("# of banned codes enterd :" + banned);
+            System.out.println("# of valid code entered :" + valid);
+            System.out.println("# of banned codes entered :" + banned);
         }
     }
